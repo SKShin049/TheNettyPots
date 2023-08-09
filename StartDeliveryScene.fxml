@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hellofx.Controller">
+   <children>
+      <SplitPane dividerPositions="0.14106425702811246" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #c10000;">
+               <children>
+                  <Button layoutX="300.0" layoutY="-4.0" mnemonicParsing="false" onAction="#OpenStoreInfo" onMouseClicked="#OpenStoreInfo" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Store Info" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="521.0" layoutY="13.0" mnemonicParsing="false" onAction="#viewAccount" stylesheets="@template.css" text="Account" textFill="WHITE" />
+                  <Button layoutX="450.0" layoutY="13.0" mnemonicParsing="false" onAction="#OpenCart" stylesheets="@template.css" text="Cart" textFill="WHITE" />
+                  <Button layoutY="-1.0" mnemonicParsing="false" onAction="#returnToHome" prefHeight="54.0" prefWidth="102.0" stylesheets="@template.css" text="PizzaNetti" textFill="WHITE" />
+                  <Button accessibleRole="MENU_BUTTON" layoutX="212.0" layoutY="-5.0" mnemonicParsing="false" onAction="#OpenMenu" onMouseClicked="#OpenMenu" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Menu" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Button>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Text layoutX="253.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="delivery" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Text layoutX="295.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or" />
+      <Button layoutX="187.0" layoutY="218.0" mnemonicParsing="false" onAction="#StartTakeout" onMouseClicked="#StartTakeout" prefHeight="42.0" prefWidth="87.0" stylesheets="@template.css" text="TakeOut" textAlignment="CENTER" textFill="WHITE" />
+      <Button layoutX="333.0" layoutY="218.0" mnemonicParsing="false" onAction="#StartDelivery" onMouseClicked="#StartDelivery" prefHeight="42.0" prefWidth="87.0" stylesheets="@template.css" text="Delivery" textAlignment="CENTER" textFill="WHITE" />
+   </children>
+</Pane>
