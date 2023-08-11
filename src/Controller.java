@@ -3,7 +3,7 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.input.MouseEvent;
+//import javafx.scene.input.MouseEvent;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -42,7 +42,7 @@ public class Controller {
     void viewAccount(ActionEvent event) throws IOException{
         changeScene("AccountScene.fxml", event);
     }
-    
+
     @FXML
     void returnToHome(ActionEvent event) throws IOException{
         changeScene("MainScene.fxml", event);
@@ -54,7 +54,7 @@ public class Controller {
     }
 
     public void changeScene(String fxmlName, ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource(fxmlName));
+        root = FXMLLoader.load(getClass().getResource("/resources/" +fxmlName));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
