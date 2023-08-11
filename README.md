@@ -7,7 +7,3 @@ Contributors:
 +Summer Shin
 +Morgan Barrett
 +Renzo Pereyra
-
-
-
-
