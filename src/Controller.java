@@ -1,6 +1,3 @@
-package hellofx;
-
-
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
