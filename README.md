@@ -1,2 +1,13 @@
-# TheNettyPots
-summer 2023 comp 380 
+#COMP 380 - Summer 2023 Term Project
+
+##_PizzaNetti_ :pizza:
+
+###Contributors: 
++Ryan Perez
++Summer Shin
++Morgan Barrett
++Renzo Pereyra
+
+
+
+
