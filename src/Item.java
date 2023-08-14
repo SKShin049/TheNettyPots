@@ -20,3 +20,12 @@ public class Item {
 
     }
 }
+class CustomOption{
+    String FoodOption;
+    double OptionPrice;
+
+    CustomOption(String FoodOption, double OptionPrice){
+        this.FoodOption = FoodOption;
+        this.OptionPrice = OptionPrice;
+    }
+}

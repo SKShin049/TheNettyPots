@@ -2,6 +2,13 @@ Pizza_Pepperoni Pizza_15.99
 Pizza_Cheese Pizza_15.99
 Pizza_Works Pizza_15.99
 Side_wings_8.99
+Side_BreadSticks_4.99
+Side_Carrots&Celery_1.99
 Salad_House Salad_5.99
+Salad_Caesar Salad_5.99
+Salad_Kale Salad_5.99
 Dessert_Brownie_7.99
+Dessert_Cookie_7.99
+Dessert_IceCream Sundae_7.99
 Drink_Coke_1.99
+Drink_Juice_0.99
