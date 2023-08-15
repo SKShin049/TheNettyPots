@@ -17,7 +17,7 @@ public class FoodMenu{
     private int DMPtr=0;
     private int DKPtr = 0;
 
-    private String filePath = "/Users/ryanp/NettyPotsProject/TheNettyPots/src/resources/FoodMenu.txt";
+    private String filePath = "C:/Users/skrq7/Netty2/TheNettyPots/src/resources/FoodMenu.txt";
 
     private void getMenuItems(){
         File file = new File(filePath);
