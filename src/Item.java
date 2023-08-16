@@ -1,3 +1,13 @@
+/** 
+a) Item Class
+b) 8/8/23
+c) Ryan P
+d) class which contains Item information
+e) explanation of functions located above each function
+f) used array as data structure
+g) no algorithms
+*/
+
 
 public class Item{
     String foodType;
@@ -5,13 +15,21 @@ public class Item{
     CustomOption[] foodCustom = new CustomOption[10];
     double foodPrice;
 
-    public String getfoodName(){
-        return foodName;
-    }
-    public double getFoodPrice(){
-        return foodPrice;
-    }
+//    public String getfoodName(){
+//        return foodName;
+//    }
+//    public double getFoodPrice(){
+//        return foodPrice;
+//    }
     
+    
+    /** 
+     * Item constructor used to create items for FoodMenu to read from .txt file
+     * @param foodName
+     * @param foodType
+     * @param foodCustom
+     * 
+     * */
     Item(String foodName, String foodType, double price, CustomOption[] foodCustom){
         this.foodName = foodName;
         this.foodType = foodType;
@@ -19,6 +37,7 @@ public class Item{
         this.foodCustom = foodCustom;
 
     }
+    
 }
 class CustomOption{
     String FoodOption;

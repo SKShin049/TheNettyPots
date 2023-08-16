@@ -8,7 +8,7 @@ ArrayList
 
  */
 
-public class ShoppingCart extends FoodMenu {
+public class ShoppingCart extends FoodMenu{
 
     ArrayList<Item> cart = new ArrayList<>();
     double tax;
@@ -42,14 +42,16 @@ public class ShoppingCart extends FoodMenu {
      * @param item
      */
     public void addToCart(Item item){
-
+        cart.add(item);
+        addToFile(item);
     }
 /** 
      * This will remove an item from the cart, and call on removeFromFile() to also remove it from the database.
      * @param item
      */
     public void removeFromCart(Item item){
-
+        cart.remove(item);
+        removeFromFile(item);
     }
 
 
