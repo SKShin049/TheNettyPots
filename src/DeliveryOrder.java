@@ -1,4 +1,15 @@
+/**
+ * DeliveryOrder implements Order class
+ * 8/8/23
+ * Morgan Barrett
+ * All methods are inherited from Order class
+ */
+
 public class DeliveryOrder implements Order{
+
+    //double total;
+    //double deliveryFee;
+
     public void deliveryETA(){
         //calculates ETA for delivery. should reference address stored in User class
     }
@@ -9,5 +20,10 @@ public class DeliveryOrder implements Order{
     
     public void checkRadius(){
         //calculates delivery radius
+    }
+
+    public void checkout(){
+
+
     }
 }

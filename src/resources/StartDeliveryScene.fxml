@@ -16,17 +16,26 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #c10000;">
                <children>
-                  <Button layoutX="300.0" layoutY="-4.0" mnemonicParsing="false" onAction="#OpenStoreInfo" onMouseClicked="#OpenStoreInfo" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Store Info" textAlignment="CENTER" textFill="WHITE">
+                  <Button layoutX="300.0" layoutY="-4.0" mnemonicParsing="false" onAction="#OpenStoreInfo" onMouseClicked="#OpenStoreInfo" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Store Info" textAlignment="CENTER" textFill="WHITE" underline="true">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Avenir Book" size="15.0" />
                      </font>
                   </Button>
-                  <Button layoutX="521.0" layoutY="13.0" mnemonicParsing="false" onAction="#viewAccount" stylesheets="@template.css" text="Account" textFill="WHITE" />
-                  <Button layoutX="450.0" layoutY="13.0" mnemonicParsing="false" onAction="#OpenCart" stylesheets="@template.css" text="Cart" textFill="WHITE" />
-                  <Button layoutY="-1.0" mnemonicParsing="false" onAction="#returnToHome" prefHeight="54.0" prefWidth="102.0" stylesheets="@template.css" text="PizzaNetti" textFill="WHITE" />
-                  <Button accessibleRole="MENU_BUTTON" layoutX="212.0" layoutY="-5.0" mnemonicParsing="false" onAction="#OpenMenu" onMouseClicked="#OpenMenu" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Menu" textAlignment="CENTER" textFill="WHITE">
+                  <Button layoutX="522.0" layoutY="11.0" mnemonicParsing="false" onAction="#viewAccount" stylesheets="@template.css" text="Account" textFill="WHITE" underline="true">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Avenir Book" size="15.0" />
+                     </font></Button>
+                  <Button layoutX="450.0" layoutY="11.0" mnemonicParsing="false" onAction="#OpenCart" stylesheets="@template.css" text="Cart" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Avenir Book" size="15.0" />
+                     </font></Button>
+                  <Button layoutY="-1.0" mnemonicParsing="false" onAction="#returnToHome" prefHeight="54.0" prefWidth="130.0" stylesheets="@template.css" text="PizzaNetti" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Book" size="20.0" />
+                     </font></Button>
+                  <Button accessibleRole="MENU_BUTTON" layoutX="212.0" layoutY="-5.0" mnemonicParsing="false" onAction="#OpenMenu" onMouseClicked="#OpenMenu" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Menu" textAlignment="CENTER" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Avenir Book" size="15.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -37,16 +46,37 @@
                <children>
                   <Text layoutX="257.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery" textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="25.0" />
+                        <Font name="Impact" size="25.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="117.0" layoutY="90.0" promptText="Street Address Line 1" />
-                  <TextField layoutX="117.0" layoutY="129.0" promptText="Street Address Line 2" />
-                  <TextField layoutX="117.0" layoutY="169.0" promptText="City" />
-                  <TextField layoutX="304.0" layoutY="90.0" promptText="State" />
-                  <TextField layoutX="304.0" layoutY="129.0" promptText="Zip " />
-                  <Button layoutX="480.0" layoutY="274.0" mnemonicParsing="false" onAction="#c" text="Next" />
-                  <TextArea layoutX="304.0" layoutY="169.0" prefHeight="76.0" prefWidth="160.0" promptText="Special Delivery Instructions" wrapText="true" />
+                  <TextField layoutX="117.0" layoutY="90.0" promptText="Street Address Line 1">
+                     <font>
+                        <Font name="Avenir Book" size="13.0" />
+                     </font></TextField>
+                  <TextField layoutX="117.0" layoutY="129.0" promptText="Street Address Line 2">
+                     <font>
+                        <Font name="Avenir Book" size="13.0" />
+                     </font></TextField>
+                  <TextField layoutX="117.0" layoutY="169.0" promptText="City">
+                     <font>
+                        <Font name="Avenir Book" size="13.0" />
+                     </font></TextField>
+                  <TextField layoutX="304.0" layoutY="90.0" promptText="State">
+                     <font>
+                        <Font name="Avenir Book" size="13.0" />
+                     </font></TextField>
+                  <TextField layoutX="304.0" layoutY="129.0" promptText="Zip ">
+                     <font>
+                        <Font name="Avenir Book" size="13.0" />
+                     </font></TextField>
+                  <Button layoutX="480.0" layoutY="274.0" mnemonicParsing="false" onAction="#c" text="Next">
+                     <font>
+                        <Font name="Impact" size="13.0" />
+                     </font></Button>
+                  <TextArea layoutX="304.0" layoutY="169.0" prefHeight="76.0" prefWidth="160.0" promptText="Special Delivery Instructions" wrapText="true">
+                     <font>
+                        <Font name="Avenir Book" size="13.0" />
+                     </font></TextArea>
                </children>
             </AnchorPane>
         </items>

@@ -8,5 +8,4 @@ public class User {
     String state;
     Long zipCode;
   
-
 }
