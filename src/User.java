@@ -7,6 +7,4 @@ public class User {
     String addressLineTwo;
     String state;
     int zipCode;
-  
-
 }

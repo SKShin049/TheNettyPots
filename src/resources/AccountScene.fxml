@@ -33,17 +33,17 @@
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Text layoutX="253.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="account" textAlignment="CENTER">
+                  <Text layoutX="221.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Account" textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="25.0" />
+                        <Font name="Verdana" size="25.0" />
                      </font>
                   </Text>
+                  <Button layoutX="239.0" layoutY="110.0" mnemonicParsing="false" onAction="#StartTakeout" onMouseClicked="#StartTakeout" prefHeight="42.0" prefWidth="125.0" stylesheets="@template.css" text="Create An Account" textAlignment="CENTER" textFill="WHITE" />
+                  <Button layoutX="258.0" layoutY="181.0" mnemonicParsing="false" onAction="#StartDelivery" onMouseClicked="#StartDelivery" prefHeight="42.0" prefWidth="87.0" stylesheets="@template.css" text="Login" textAlignment="CENTER" textFill="WHITE" />
+                  <Text layoutX="294.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or" />
                </children>
             </AnchorPane>
         </items>
       </SplitPane>
-      <Text layoutX="295.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or" />
-      <Button layoutX="187.0" layoutY="218.0" mnemonicParsing="false" onAction="#StartTakeout" onMouseClicked="#StartTakeout" prefHeight="42.0" prefWidth="87.0" stylesheets="@template.css" text="TakeOut" textAlignment="CENTER" textFill="WHITE" />
-      <Button layoutX="333.0" layoutY="218.0" mnemonicParsing="false" onAction="#StartDelivery" onMouseClicked="#StartDelivery" prefHeight="42.0" prefWidth="87.0" stylesheets="@template.css" text="Delivery" textAlignment="CENTER" textFill="WHITE" />
    </children>
 </Pane>
