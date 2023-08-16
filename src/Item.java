@@ -11,6 +11,7 @@ public class Item{
     public double getFoodPrice(){
         return foodPrice;
     }
+    
     Item(String foodName, String foodType, double price, CustomOption[] foodCustom){
         this.foodName = foodName;
         this.foodType = foodType;
