@@ -6,7 +6,7 @@ public class User {
     String addressLineOne;
     String addressLineTwo;
     String state;
-    Long zipCode;
+    int zipCode;
   
 
 }

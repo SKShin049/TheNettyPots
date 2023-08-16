@@ -1,3 +1,3 @@
-public class ShoppingCart {
+public class ShoppingCart extends FoodMenu {
     
 }
