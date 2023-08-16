@@ -14,7 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Controller {
+public class Controller extends ShoppingCart {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -137,6 +137,12 @@ public class Controller {
     @FXML
     void OpenDrinksMenu(ActionEvent event) throws IOException{
         changeScene("DrinksMenuScene.fxml", event);
+    }
+
+    @FXML
+    void addtoCart(ActionEvent event, Item item) throws IOException{
+        cart.add(item);
+        
     }
 
 
