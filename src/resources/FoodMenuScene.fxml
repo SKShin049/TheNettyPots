@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
@@ -48,6 +49,7 @@
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
+<<<<<<< HEAD
                   <FlowPane layoutX="166.0" layoutY="60.0" prefHeight="339.2" prefWidth="599.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <VBox prefHeight="339.0" prefWidth="415.0">
@@ -103,6 +105,81 @@
                         </VBox>
                      </children>
                   </FlowPane>
+=======
+                  <ButtonBar layoutX="94.0" layoutY="25.0" prefHeight="40.0" prefWidth="395.0">
+                    <buttons>
+                      <Button mnemonicParsing="false" stylesheets="@buttontemplate.css" text="Pizza">
+                           <font>
+                              <Font name="Impact" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" text="Sides" textFill="#111010">
+                           <font>
+                              <Font name="Impact" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" text="Salads">
+                           <font>
+                              <Font name="Impact" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Desserts">
+                           <font>
+                              <Font name="Impact" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="331.0" layoutY="17.0" mnemonicParsing="false" text="Drinks">
+                           <font>
+                              <Font name="Impact" size="14.0" />
+                           </font>
+                        </Button>
+                    </buttons>
+                  </ButtonBar>
+                  <Button layoutX="60.0" layoutY="252.0" mnemonicParsing="false" text="Add">
+                     <font>
+                        <Font name="Avenir Book" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="202.0" layoutY="252.0" mnemonicParsing="false" text="Add">
+                     <font>
+                        <Font name="Avenir Book" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="346.0" layoutY="252.0" mnemonicParsing="false" text="Add">
+                     <font>
+                        <Font name="Avenir Book" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="485.0" layoutY="252.0" mnemonicParsing="false" text="Add">
+                     <font>
+                        <Font name="Avenir Book" size="12.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="123.0" fitWidth="130.0" layoutX="14.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="123.0" fitWidth="130.0" layoutX="156.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="123.0" fitWidth="130.0" layoutX="300.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="123.0" fitWidth="130.0" layoutX="439.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="64.0" layoutY="87.0" text="BBQ">
+                     <font>
+                        <Font name="Avenir Book" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="204.0" layoutY="87.0" text="Hawaiian">
+                     <font>
+                        <Font name="Avenir Book" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="349.0" layoutY="87.0" text="Veggie">
+                     <font>
+                        <Font name="Avenir Book" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="488.0" layoutY="87.0" text="Custom">
+                     <font>
+                        <Font name="Avenir Book" size="14.0" />
+                     </font>
+                  </Label>
+>>>>>>> 9ce3c55535c93b89414621842c34fdc1d8014b8d
                </children></AnchorPane>
         </items>
       </SplitPane>

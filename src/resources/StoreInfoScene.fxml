@@ -14,17 +14,26 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #c10000;">
                <children>
-                  <Button layoutX="300.0" layoutY="-4.0" mnemonicParsing="false" onAction="#OpenStoreInfo" onMouseClicked="#OpenStoreInfo" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Store Info" textAlignment="CENTER" textFill="WHITE">
+                  <Button layoutX="300.0" layoutY="-4.0" mnemonicParsing="false" onAction="#OpenStoreInfo" onMouseClicked="#OpenStoreInfo" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Store Info" textAlignment="CENTER" textFill="WHITE" underline="true">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Avenir Book" size="15.0" />
                      </font>
                   </Button>
-                  <Button layoutX="521.0" layoutY="13.0" mnemonicParsing="false" onAction="#viewAccount" stylesheets="@template.css" text="Account" textFill="WHITE" />
-                  <Button layoutX="450.0" layoutY="13.0" mnemonicParsing="false" onAction="#OpenCart" stylesheets="@template.css" text="Cart" textFill="WHITE" />
-                  <Button layoutY="-1.0" mnemonicParsing="false" onAction="#returnToHome" prefHeight="54.0" prefWidth="102.0" stylesheets="@template.css" text="PizzaNetti" textFill="WHITE" />
-                  <Button accessibleRole="MENU_BUTTON" layoutX="212.0" layoutY="-5.0" mnemonicParsing="false" onAction="#OpenMenu" onMouseClicked="#OpenMenu" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Menu" textAlignment="CENTER" textFill="WHITE">
+                  <Button layoutX="522.0" layoutY="11.0" mnemonicParsing="false" onAction="#viewAccount" stylesheets="@template.css" text="Account" textFill="WHITE" underline="true">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Avenir Book" size="15.0" />
+                     </font></Button>
+                  <Button layoutX="450.0" layoutY="11.0" mnemonicParsing="false" onAction="#OpenCart" stylesheets="@template.css" text="Cart" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Avenir Book" size="15.0" />
+                     </font></Button>
+                  <Button layoutY="-1.0" mnemonicParsing="false" onAction="#returnToHome" prefHeight="54.0" prefWidth="117.0" stylesheets="@template.css" text="PizzaNetti" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Book" size="20.0" />
+                     </font></Button>
+                  <Button accessibleRole="MENU_BUTTON" layoutX="212.0" layoutY="-5.0" mnemonicParsing="false" onAction="#OpenMenu" onMouseClicked="#OpenMenu" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Menu" textAlignment="CENTER" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Avenir Book" size="15.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -33,17 +42,48 @@
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Text layoutX="241.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Info" textAlignment="CENTER">
+                  <Text layoutX="104.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location" textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="25.0" />
+                        <Font name="Impact" size="25.0" />
                      </font>
                   </Text>
-               </children>
-            </AnchorPane>
+                  <Text layoutX="104.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18111 Nordhoff St." wrappingWidth="153.60107421875">
+                     <font>
+                        <Font name="Avenir Book" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="104.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Northridge, CA">
+                     <font>
+                        <Font name="Avenir Book" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="104.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="91330">
+                     <font>
+                        <Font name="Avenir Book" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="356.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Us">
+                     <font>
+                        <Font name="Impact" size="25.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="356.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(818) 123 - 4567">
+                     <font>
+                        <Font name="Avenir Book" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="356.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="pizzanetti@gmail.com">
+                     <font>
+                        <Font name="Avenir Book" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="105.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rm. JD1128">
+                     <font>
+                        <Font name="Avenir Book" size="17.0" />
+                     </font>
+                  </Text>
+               </children></AnchorPane>
         </items>
       </SplitPane>
-      <Text layoutX="295.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or" />
-      <Button layoutX="187.0" layoutY="218.0" mnemonicParsing="false" onAction="#StartTakeout" onMouseClicked="#StartTakeout" prefHeight="42.0" prefWidth="87.0" stylesheets="@template.css" text="TakeOut" textAlignment="CENTER" textFill="WHITE" />
-      <Button layoutX="333.0" layoutY="218.0" mnemonicParsing="false" onAction="#StartDelivery" onMouseClicked="#StartDelivery" prefHeight="42.0" prefWidth="87.0" stylesheets="@template.css" text="Delivery" textAlignment="CENTER" textFill="WHITE" />
    </children>
 </Pane>

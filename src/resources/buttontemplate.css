@@ -1,0 +1,10 @@
+.button:hover
+{
+    -fx-text-fill: #c10000;
+    -fx-underline: true;
+}
+.button:pressed{
+    -fx-background-color: #c10000;
+    -fx-text-fill: #eeeeee;
+    -fx-underline: true;
+}

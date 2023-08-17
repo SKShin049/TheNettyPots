@@ -1,12 +1,12 @@
 /**
- * CarryOutOrder implements Order class
+ * CarryOutOrder extends Order class
  * 8/8/23
  * Morgan Barrett
  * All methods are inherited from Order class
  */
 
-
-public class CarryOutOrder implements Order {
+public class CarryOutOrder extends Order {
+   
     public void deliveryETA(){
 
     }
@@ -16,6 +16,10 @@ public class CarryOutOrder implements Order {
     }
     
     public void checkRadius(){
+
+    }
+
+    public void checkout(){
 
     }
 }
