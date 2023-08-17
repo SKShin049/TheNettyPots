@@ -4,10 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.SplitPane?>
-<<<<<<< HEAD
 <?import javafx.scene.image.ImageView?>
-=======
->>>>>>> 4143a46e177be4bb1048d7914e42bf9b9788c7ef
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -75,7 +72,6 @@
                         </Button>
                     </buttons>
                   </ButtonBar>
-<<<<<<< HEAD
                   <Button layoutX="60.0" layoutY="252.0" mnemonicParsing="false" text="Add">
                      <font>
                         <Font name="Avenir Book" size="12.0" />
@@ -120,8 +116,6 @@
                         <Font name="Avenir Book" size="14.0" />
                      </font>
                   </Label>
-=======
->>>>>>> 4143a46e177be4bb1048d7914e42bf9b9788c7ef
                </children></AnchorPane>
         </items>
       </SplitPane>
