@@ -3,6 +3,7 @@ public class User {
     String password;
     String firstName;
     String lastName;
+    String email;
     String addressLineOne;
     String addressLineTwo;
     String state;
