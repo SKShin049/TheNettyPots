@@ -39,6 +39,11 @@ public class Controller extends ShoppingCart implements Initializable {
         @Override
     public void initialize(URL location, ResourceBundle resources) {
             run();
+            // initialize(DessertMenu);
+            // initialize(PizzaMenu);
+            // initialize(SideMenu);
+            // initialize(DrinkMenu);
+            // initialize(SaladMenu);
             int column = 0;
             int row = 1;
             
@@ -64,22 +69,32 @@ public class Controller extends ShoppingCart implements Initializable {
         }
     }
     
-    // public void initialize(Item[] arr) {
-    //     try {
-    //         for(int i = 0;i<arr.length;i++){
-    //             FXMLLoader fxmlLoader = new FXMLLoader();
-    //         fxmlLoader.setLocation(getClass().getResource("/resources/CheesePizzaScene.fxml"));
-    //         VBox cardBox = fxmlLoader.load();
-    //         CardController cardController = new CardController();
-    //         cardController.setData(arr[i]);
-    //         cardLayout.getChildren().add(cardBox);
-    //         }
+    public void initialize(Item[] arr) {
+                    int column = 0;
+            int row = 1;
+            
+                try {
+            for(int i = 0;i<arr.length;i++){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/resources/CheesePizzaScene.fxml"));
+            VBox cardBox = fxmlLoader.load();
+            CardController cardController = fxmlLoader.getController();
+            cardController.setData(arr[i]);
+            
+            if(column == 2){
+                column =0;
+                row++;
+            }
 
-    //     } catch (Exception e) {
-    //         System.out.println(e);
-    //     }
+            ItemContainer.add(cardBox, column++, row);
+            GridPane.setMargin(cardBox, new Insets(10));
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         
-    // }
+    }
     
     /** 
      * OpenMenu function opens our FoodMenuScene.fxml

@@ -105,11 +105,11 @@ public class FoodMenu{
      */
     public void run(){
         getMenuItems();
-        printarr(PizzaMenu);
-        printarr(SaladMenu);
-        printarr(DessertMenu);
-        printarr(SideMenu);
-        printarr(DrinkMenu);
+        // printarr(PizzaMenu);
+        // printarr(SaladMenu);
+        // printarr(DessertMenu);
+        // printarr(SideMenu);
+        // printarr(DrinkMenu);
     }
 
     
