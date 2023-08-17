@@ -1,3 +1,12 @@
+/** 
+a) Main
+b) 8/8/23
+c) Summer S
+d) class which runs all other functions
+e) M.run() executes other functions
+*/
+
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

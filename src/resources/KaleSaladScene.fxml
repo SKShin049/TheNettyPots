@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="92.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+         <VBox.margin>
+            <Insets left="30.0" top="5.0" />
+         </VBox.margin>
+         <image>
+            <Image url="@kaleSalad.jpg" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Button mnemonicParsing="false" stylesheets="@template.css" text="Add To Cart" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets left="35.0" top="10.0" />
+               </VBox.margin>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Button>
+            <ChoiceBox prefHeight="25.0" prefWidth="79.0">
+               <VBox.margin>
+                  <Insets left="35.0" />
+               </VBox.margin>
+            </ChoiceBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </VBox>
+   </children>
+</VBox>

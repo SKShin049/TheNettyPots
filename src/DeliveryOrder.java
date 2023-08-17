@@ -7,10 +7,6 @@
 
 public class DeliveryOrder extends Order{
 
-    public void deliveryETA(){
-        //calculates ETA for delivery. should reference address stored in User class
-    }
-
     public void readyAt(){
         //calculates when pizza will be ready
     }

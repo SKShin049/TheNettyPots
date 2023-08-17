@@ -1,3 +1,11 @@
+/*
+@author Ryan Perez
+@since 08/08/23
+
+This class is designed to store our the items from our database(FoodMenu.txt) into arrays that are split into different food catagories.
+
+Arrays
+ */
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -5,6 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class FoodMenu{
+
     Item[] PizzaMenu = new Item[3];   //Where our pizzas are stored
     Item[] SaladMenu= new Item[3];   //Where our salads are stored
     Item[] SideMenu= new Item[3];    //Where our side options are stored
@@ -17,8 +26,13 @@ public class FoodMenu{
     private int DMPtr=0;
     private int DKPtr = 0;
 
+
+
     private String filePath = "./src/resources/FoodMenu.txt";
 
+    /*
+     * getMenuItems function reads our FoodMenu.txt(database) line by line, and allows fillMenu() to insert into the correct menu arrays
+     */
     private void getMenuItems(){
         File file = new File(filePath);
 
@@ -41,13 +55,43 @@ public class FoodMenu{
         }
     }
 
+    
+    /** 
+     * this function will take a line from the database, that has been split into parts(parts[]), create that line into an item, and insert it into the given array(arr[])
+     * @param arr
+     * @param parts
+     * @param itemprice
+     * @param arrPtr
+     */
     private void insertItem(Item[] arr, String[] parts, double itemprice, int arrPtr){
-        Item temp = new Item(parts[1], parts[0], itemprice);
+        CustomOption[] tempArr= new CustomOption[10];
+        Item temp = new Item(parts[1], parts[0], itemprice, tempArr);
         arr[arrPtr] = temp;
         // System.out.print(temp.foodName+ " " + temp.foodType + " " + temp.foodPrice);
         // System.out.println();
     }
 
+    
+    /** 
+     * This function will insert the custom options for an item into the items customOptions array
+     * @param arr
+     * @param parts
+     * @param arrPtr
+     * @param CustomOptionPtr
+     * @param partsPosition
+     */
+    private void insertCustOption(Item[] arr, String[] parts, int arrPtr, int CustomOptionPtr, int partsPosition){
+        double dtemp = Double.parseDouble(parts[partsPosition+1]);
+        CustomOption temp =new CustomOption(parts[partsPosition],dtemp);
+        arr[arrPtr-1].foodCustom[CustomOptionPtr] = temp;
+        
+    }
+
+    
+    /** 
+     * this function will print a given Item array
+     * @param arr
+     */
     private void printarr(Item[] arr){
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i].foodType + ": " + arr[i].foodName + " $" + arr[i].foodPrice);
@@ -56,6 +100,9 @@ public class FoodMenu{
             
     } 
 
+    /*
+     * This function will be turned into a intialize and populate our Menu's from the database on startup
+     */
     public void run(){
         getMenuItems();
         printarr(PizzaMenu);
@@ -65,25 +112,23 @@ public class FoodMenu{
         printarr(DrinkMenu);
     }
 
+    
+    /** 
+     * This function takes the line from readfile() and splits the line into parts split by "_" and inserts the split line into an array of type String. It then decides which
+     * Menu to insert into. It also adds the the CustomOptions to each item that has any.
+     * @param MenuItemInfo
+     */
     //THIS FUNCTION IS NOT FINISHED
     private void fillMenu(String MenuItemInfo){                  //
         String[] parts = MenuItemInfo.split("_");
-        // for(int i = 0; i<parts.length;i++)
-        //     System.out.print(parts[i]+ ", ");
         double temp = Double.parseDouble(parts[2]);
 
         if(parts[0].equals("Pizza")){
-            // PizzaMenu[PMPtr].foodType = parts[0];
-            // PizzaMenu[PMPtr].foodName = parts[1];
-            // PizzaMenu[PMPtr].foodPrice = temp;
             insertItem(PizzaMenu, parts, temp, PMPtr);
             PMPtr++;
         }
 
         else if(parts[0].equals("Salad")){
-            // SaladMenu[SMPtr].foodType = parts[0];
-            // SaladMenu[SMPtr].foodName = parts[1];
-            // SaladMenu[SMPtr].foodPrice = temp;
             insertItem(SaladMenu, parts, temp, SalMPtr);
             SalMPtr++;
         }
@@ -92,9 +137,6 @@ public class FoodMenu{
             SMPtr++;
         }
         else if(parts[0].equals("Dessert")){
-            // DessertMenu[DMPtr].foodType = parts[0];
-            // DessertMenu[DMPtr].foodName = parts[1];
-            // DessertMenu[DMPtr].foodPrice = temp;
             insertItem(DessertMenu, parts, temp, DMPtr);
             DMPtr++;
         }
@@ -103,9 +145,31 @@ public class FoodMenu{
             DKPtr++;
         }
 
+        int CustomOptionPtr = 3;
         if (parts.length > 3 )
         for (int i = 4; i<parts.length;i++){
-            
+            if(parts[0].equals("Pizza")){
+            insertCustOption(PizzaMenu, parts, i, CustomOptionPtr, i);
+            PMPtr++;
+        }
+
+        else if(parts[0].equals("Salad")){
+            insertItem(SaladMenu, parts, temp, SalMPtr);
+            SalMPtr++;
+        }
+        else if(parts[0].equals("Side")){
+            insertItem(SideMenu, parts, temp, SMPtr);
+            SMPtr++;
+        }
+        else if(parts[0].equals("Dessert")){
+            insertItem(DessertMenu, parts, temp, DMPtr);
+            DMPtr++;
+        }
+        else if(parts[0].equals("Drink")){
+            insertItem(DrinkMenu, parts, temp, DKPtr);
+            DKPtr++;
+        }
         }
     }
 }
+
