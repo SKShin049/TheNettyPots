@@ -30,6 +30,14 @@ public class Controller extends ShoppingCart implements Initializable {
 
     @FXML
     private GridPane ItemContainer;
+    @FXML
+    private GridPane SidesContainer;
+    @FXML
+    private GridPane SaladsContainer;
+    @FXML
+    private GridPane DessertsContainer;
+    @FXML
+    private GridPane DrinksContainer;
 
      @FXML
     private VBox cardLayout;
@@ -39,37 +47,37 @@ public class Controller extends ShoppingCart implements Initializable {
         @Override
     public void initialize(URL location, ResourceBundle resources) {
             run();
-            // initialize(DessertMenu);
-            // initialize(PizzaMenu);
-            // initialize(SideMenu);
-            // initialize(DrinkMenu);
-            // initialize(SaladMenu);
-            int column = 0;
-            int row = 1;
+            initialize(DessertMenu,DessertsContainer);
+            initialize(PizzaMenu,ItemContainer);
+            initialize(SideMenu,SidesContainer);
+            initialize(DrinkMenu,DrinksContainer);
+            initialize(SaladMenu,SaladsContainer);
+        //     int column = 0;
+        //     int row = 1;
             
-                try {
-            for(int i = 0;i<PizzaMenu.length;i++){
-                FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/resources/CheesePizzaScene.fxml"));
-            VBox cardBox = fxmlLoader.load();
-            CardController cardController = fxmlLoader.getController();
-            cardController.setData(PizzaMenu[i]);
+        //         try {
+        //     for(int i = 0;i<PizzaMenu.length;i++){
+        //         FXMLLoader fxmlLoader = new FXMLLoader();
+        //     fxmlLoader.setLocation(getClass().getResource("/resources/CheesePizzaScene.fxml"));
+        //     VBox cardBox = fxmlLoader.load();
+        //     CardController cardController = fxmlLoader.getController();
+        //     cardController.setData(PizzaMenu[i]);
             
-            if(column == 2){
-                column =0;
-                row++;
-            }
+        //     if(column == 2){
+        //         column =0;
+        //         row++;
+        //     }
 
-            ItemContainer.add(cardBox, column++, row);
-            GridPane.setMargin(cardBox, new Insets(10));
-            }
+        //     ItemContainer.add(cardBox, column++, row);
+        //     GridPane.setMargin(cardBox, new Insets(10));
+        //     }
 
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        // } catch (Exception e) {
+        //     System.out.println(e);
+        // }
     }
     
-    public void initialize(Item[] arr) {
+    public void initialize(Item[] arr, GridPane pane) {
                     int column = 0;
             int row = 1;
             
@@ -81,12 +89,13 @@ public class Controller extends ShoppingCart implements Initializable {
             CardController cardController = fxmlLoader.getController();
             cardController.setData(arr[i]);
             
+            
             if(column == 2){
                 column =0;
                 row++;
             }
 
-            ItemContainer.add(cardBox, column++, row);
+            pane.add(cardBox, column++, row);
             GridPane.setMargin(cardBox, new Insets(10));
             }
 

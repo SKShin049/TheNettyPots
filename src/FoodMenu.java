@@ -28,7 +28,7 @@ public class FoodMenu{
 
 
 
-    private String filePath = "/Users/ryan/TheNettyPots/TheNettyPots/src/resources/FoodMenu.txt";
+    private String filePath = "/Users/ryanp/NettyPotsProject/TheNettyPots/src/resources/FoodMenu.txt";
 
     /*
      * getMenuItems function reads our FoodMenu.txt(database) line by line, and allows fillMenu() to insert into the correct menu arrays
@@ -105,11 +105,11 @@ public class FoodMenu{
      */
     public void run(){
         getMenuItems();
-        // printarr(PizzaMenu);
-        // printarr(SaladMenu);
-        // printarr(DessertMenu);
-        // printarr(SideMenu);
-        // printarr(DrinkMenu);
+        printarr(PizzaMenu);
+        printarr(SaladMenu);
+        printarr(DessertMenu);
+        printarr(SideMenu);
+        printarr(DrinkMenu);
     }
 
     

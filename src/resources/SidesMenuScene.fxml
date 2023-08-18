@@ -54,27 +54,27 @@
                            <children>
                               <ButtonBar prefHeight="44.0" prefWidth="411.0">
                                 <buttons>
-                                  <Button mnemonicParsing="false" onAction="#OpenMenu" text="Pizza">
+                                  <Button mnemonicParsing="false" onAction="#OpenMenu" stylesheets="@buttontemplate.css" text="Pizza" textFill="WHITE">
                                        <font>
                                           <Font name="Impact" size="14.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" onAction="#OpenSidesMenu" stylesheets="@buttontemplate.css" text="Sides" textFill="#111010">
+                                    <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" onAction="#OpenSidesMenu" stylesheets="@buttontemplate.css" text="Sides" textFill="WHITE">
                                        <font>
                                           <Font name="Impact" size="14.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" onAction="#OpenSaladsMenu" text="Salads">
+                                    <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" onAction="#OpenSaladsMenu" stylesheets="@buttontemplate.css" text="Salads" textFill="WHITE">
                                        <font>
                                           <Font name="Impact" size="14.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" onAction="#OpenDessertsMenu" prefHeight="26.0" prefWidth="84.0" text="Desserts">
+                                    <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" onAction="#OpenDessertsMenu" prefHeight="26.0" prefWidth="84.0" stylesheets="@buttontemplate.css" text="Desserts" textFill="WHITE">
                                        <font>
                                           <Font name="Impact" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="331.0" layoutY="17.0" minWidth="0.0" mnemonicParsing="false" onAction="#OpenDrinksMenu" prefHeight="27.0" text="Drinks">
+                                    <Button layoutX="331.0" layoutY="17.0" minWidth="0.0" mnemonicParsing="false" onAction="#OpenDrinksMenu" prefHeight="27.0" stylesheets="@buttontemplate.css" text="Drinks" textFill="WHITE">
                                        <font>
                                           <Font name="Impact" size="14.0" />
                                        </font>
@@ -83,7 +83,7 @@
                               </ButtonBar>
                               <ScrollPane prefHeight="294.0" prefWidth="438.0">
                                  <content>
-                                    <GridPane fx:id="ItemContainer" prefHeight="0.0" prefWidth="0.0">
+                                    <GridPane fx:id="SidesContainer" prefHeight="0.0" prefWidth="0.0">
                                       <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
