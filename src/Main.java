@@ -29,5 +29,7 @@ public class Main extends Application {
         FoodMenu M = new FoodMenu();
         M.run();
         launch(args);
+        Order newOrder = new Order();
+        newOrder.createOrder();
     }
 }

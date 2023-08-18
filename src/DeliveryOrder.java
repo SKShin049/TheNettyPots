@@ -10,9 +10,13 @@ public class DeliveryOrder extends Order{
     public void readyAt(){
         //calculates when pizza will be ready
     }
+
+    public void deliveryETA(){
+
+    }
     
     public void checkRadius(){
-        //calculates delivery radius
+        
     }
 
     public void checkout(){

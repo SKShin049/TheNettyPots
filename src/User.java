@@ -7,7 +7,8 @@
 
 /** 
  * Creates a "user" class.
- * It contains input values which can be used to create a user account. These values can then be referenced to fetch user preferences and ease integration for future user orders.
+ * It contains input values which can be used to create a user account. 
+ * These values can then be referenced to fetch user preferences and ease integration for future user orders.
  */
 
 public class User {
@@ -19,6 +20,5 @@ public class User {
     String addressLineOne;
     String addressLineTwo;
     String state;
-    Long zipCode;
-  
+    int zipCode;
 }

@@ -7,18 +7,11 @@
 
 public class CarryOutOrder extends Order {
    
-    public void deliveryETA(){
-
-    }
 
     public void readyAt(){
 
     }
     
-    public void checkRadius(){
-
-    }
-
     public void checkout(){
 
     }
