@@ -5,20 +5,105 @@
 This class is designed to handle our GUI scene switches and connect any buttons to their corresponding function
  */
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.GridPane;
 
-public class Controller extends ShoppingCart {
+
+public class Controller extends ShoppingCart implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
 
+    @FXML
+    private GridPane ItemContainer;
+    @FXML
+    private GridPane SidesContainer;
+    @FXML
+    private GridPane SaladsContainer;
+    @FXML
+    private GridPane DessertsContainer;
+    @FXML
+    private GridPane DrinksContainer;
+
+     @FXML
+    private VBox cardLayout;
+    private ArrayList<Item> prod = new ArrayList<>(Arrays.asList(PizzaMenu));
+    
+
+        @Override
+    public void initialize(URL location, ResourceBundle resources) {
+            run();
+            initialize(DessertMenu,DessertsContainer);
+            initialize(PizzaMenu,ItemContainer);
+            initialize(SideMenu,SidesContainer);
+            initialize(DrinkMenu,DrinksContainer);
+            initialize(SaladMenu,SaladsContainer);
+        //     int column = 0;
+        //     int row = 1;
+            
+        //         try {
+        //     for(int i = 0;i<PizzaMenu.length;i++){
+        //         FXMLLoader fxmlLoader = new FXMLLoader();
+        //     fxmlLoader.setLocation(getClass().getResource("/resources/CheesePizzaScene.fxml"));
+        //     VBox cardBox = fxmlLoader.load();
+        //     CardController cardController = fxmlLoader.getController();
+        //     cardController.setData(PizzaMenu[i]);
+            
+        //     if(column == 2){
+        //         column =0;
+        //         row++;
+        //     }
+
+        //     ItemContainer.add(cardBox, column++, row);
+        //     GridPane.setMargin(cardBox, new Insets(10));
+        //     }
+
+        // } catch (Exception e) {
+        //     System.out.println(e);
+        // }
+    }
+    
+    public void initialize(Item[] arr, GridPane pane) {
+                    int column = 0;
+            int row = 1;
+            
+                try {
+            for(int i = 0;i<arr.length;i++){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/resources/CheesePizzaScene.fxml"));
+            VBox cardBox = fxmlLoader.load();
+            CardController cardController = fxmlLoader.getController();
+            cardController.setData(arr[i]);
+            
+            
+            if(column == 2){
+                column =0;
+                row++;
+            }
+
+            pane.add(cardBox, column++, row);
+            GridPane.setMargin(cardBox, new Insets(10));
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+    }
     
     /** 
      * OpenMenu function opens our FoodMenuScene.fxml
@@ -29,6 +114,7 @@ public class Controller extends ShoppingCart {
     void OpenMenu(ActionEvent event) throws IOException{
         String FoodMenufile = "FoodMenuScene.fxml";
         changeScene(FoodMenufile, event);
+        //initialize(PizzaMenu);
     }
 
     
@@ -107,6 +193,7 @@ public class Controller extends ShoppingCart {
     @FXML
     void OpenSidesMenu(ActionEvent event) throws IOException{
         changeScene("SidesMenuScene.fxml", event);
+        //initialize(SideMenu);
     }
 
     /** 
@@ -117,6 +204,7 @@ public class Controller extends ShoppingCart {
     @FXML
     void OpenSaladsMenu(ActionEvent event) throws IOException{
         changeScene("SaladsMenuScene.fxml", event);
+        //initialize(SaladMenu);
     }
 
     /** 
@@ -127,6 +215,7 @@ public class Controller extends ShoppingCart {
     @FXML
     void OpenDessertsMenu(ActionEvent event) throws IOException{
         changeScene("DessertsMenuScene.fxml", event);
+        //initialize(DessertMenu);
     }
 
     /** 
@@ -137,14 +226,9 @@ public class Controller extends ShoppingCart {
     @FXML
     void OpenDrinksMenu(ActionEvent event) throws IOException{
         changeScene("DrinksMenuScene.fxml", event);
+        //initialize(DrinkMenu);
     }
-
-    @FXML
-    void addtoCart(ActionEvent event, Item item) throws IOException{
-        cart.add(item);
-        
-    }
-
+    
 
 
     
@@ -162,4 +246,12 @@ public class Controller extends ShoppingCart {
         stage.show();
 
     }
+
+
+
+
+
+
+
+   
 }

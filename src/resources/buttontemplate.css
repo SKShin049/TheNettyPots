@@ -1,10 +1,16 @@
+.button
+{
+    -fx-background-color :  #c10000;
+}
 .button:hover
 {
-    -fx-text-fill: #c10000;
-    -fx-underline: true;
+    -fx-background-color: #e00000;
 }
-.button:pressed{
+.button:pressed
+{
     -fx-background-color: #c10000;
-    -fx-text-fill: #eeeeee;
-    -fx-underline: true;
+}
+.button:selected
+{
+    -fx-background-color: #e00000;
 }

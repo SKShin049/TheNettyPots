@@ -14,6 +14,7 @@ public class Item{
     String foodName;
     CustomOption[] foodCustom = new CustomOption[10];
     double foodPrice;
+    String imgSrc;
 
 //    public String getfoodName(){
 //        return foodName;
@@ -30,13 +31,27 @@ public class Item{
      * @param foodCustom
      * 
      * */
-    Item(String foodName, String foodType, double price, CustomOption[] foodCustom){
+    Item(String foodName, String foodType, double price, CustomOption[] foodCustom, String imgSrc){
         this.foodName = foodName;
         this.foodType = foodType;
         foodPrice = price; 
         this.foodCustom = foodCustom;
+        this.imgSrc = imgSrc;
 
     }
+
+    public String getfoodName(){
+        return foodName;
+    }
+
+    public double getFoodPrice(){
+        return foodPrice;
+    }
+
+    public String getImgSrc(){
+        return imgSrc;
+    }
+
     
 }
 class CustomOption{

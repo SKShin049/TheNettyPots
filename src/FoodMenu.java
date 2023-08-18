@@ -28,7 +28,7 @@ public class FoodMenu{
 
 
 
-    private String filePath = "./src/resources/FoodMenu.txt";
+    private String filePath = "/Users/ryanp/NettyPotsProject/TheNettyPots/src/resources/FoodMenu.txt";
 
     /*
      * getMenuItems function reads our FoodMenu.txt(database) line by line, and allows fillMenu() to insert into the correct menu arrays
@@ -65,7 +65,7 @@ public class FoodMenu{
      */
     private void insertItem(Item[] arr, String[] parts, double itemprice, int arrPtr){
         CustomOption[] tempArr= new CustomOption[10];
-        Item temp = new Item(parts[1], parts[0], itemprice, tempArr);
+        Item temp = new Item(parts[1], parts[0], itemprice, tempArr, parts[3]);
         arr[arrPtr] = temp;
         // System.out.print(temp.foodName+ " " + temp.foodType + " " + temp.foodPrice);
         // System.out.println();
@@ -145,8 +145,8 @@ public class FoodMenu{
             DKPtr++;
         }
 
-        int CustomOptionPtr = 3;
-        if (parts.length > 3 )
+        int CustomOptionPtr = 4;
+        if (parts.length > 4 )
         for (int i = 4; i<parts.length;i++){
             if(parts[0].equals("Pizza")){
             insertCustOption(PizzaMenu, parts, i, CustomOptionPtr, i);

@@ -4,10 +4,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
@@ -44,79 +48,61 @@
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ButtonBar layoutX="94.0" layoutY="25.0" prefHeight="40.0" prefWidth="395.0">
-                    <buttons>
-                      <Button mnemonicParsing="false" stylesheets="@buttontemplate.css" text="Pizza">
-                           <font>
-                              <Font name="Impact" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" text="Sides" textFill="#111010">
-                           <font>
-                              <Font name="Impact" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" text="Salads">
-                           <font>
-                              <Font name="Impact" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Desserts">
-                           <font>
-                              <Font name="Impact" size="13.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="331.0" layoutY="17.0" mnemonicParsing="false" text="Drinks">
-                           <font>
-                              <Font name="Impact" size="14.0" />
-                           </font>
-                        </Button>
-                    </buttons>
-                  </ButtonBar>
-                  <Button layoutX="60.0" layoutY="252.0" mnemonicParsing="false" text="Add">
-                     <font>
-                        <Font name="Avenir Book" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="202.0" layoutY="252.0" mnemonicParsing="false" text="Add">
-                     <font>
-                        <Font name="Avenir Book" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="346.0" layoutY="252.0" mnemonicParsing="false" text="Add">
-                     <font>
-                        <Font name="Avenir Book" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="485.0" layoutY="252.0" mnemonicParsing="false" text="Add">
-                     <font>
-                        <Font name="Avenir Book" size="12.0" />
-                     </font>
-                  </Button>
-                  <ImageView fitHeight="123.0" fitWidth="130.0" layoutX="14.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fitHeight="123.0" fitWidth="130.0" layoutX="156.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fitHeight="123.0" fitWidth="130.0" layoutX="300.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fitHeight="123.0" fitWidth="130.0" layoutX="439.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label layoutX="64.0" layoutY="87.0" text="BBQ">
-                     <font>
-                        <Font name="Avenir Book" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="204.0" layoutY="87.0" text="Hawaiian">
-                     <font>
-                        <Font name="Avenir Book" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="349.0" layoutY="87.0" text="Veggie">
-                     <font>
-                        <Font name="Avenir Book" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="488.0" layoutY="87.0" text="Custom">
-                     <font>
-                        <Font name="Avenir Book" size="14.0" />
-                     </font>
-                  </Label>
+                  <FlowPane layoutX="166.0" layoutY="60.0" prefHeight="339.2" prefWidth="599.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox prefHeight="339.0" prefWidth="415.0">
+                           <children>
+                              <ButtonBar prefHeight="44.0" prefWidth="411.0">
+                                <buttons>
+                                  <Button mnemonicParsing="false" onAction="#OpenMenu" stylesheets="@buttontemplate.css" text="Pizza" textFill="WHITE">
+                                       <font>
+                                          <Font name="Impact" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" onAction="#OpenSidesMenu" stylesheets="@buttontemplate.css" text="Sides" textFill="WHITE">
+                                       <font>
+                                          <Font name="Impact" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" onAction="#OpenSaladsMenu" stylesheets="@buttontemplate.css" text="Salads" textFill="WHITE">
+                                       <font>
+                                          <Font name="Impact" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="411.0" layoutY="17.0" mnemonicParsing="false" onAction="#OpenDessertsMenu" prefHeight="26.0" prefWidth="84.0" stylesheets="@buttontemplate.css" text="Desserts" textFill="WHITE">
+                                       <font>
+                                          <Font name="Impact" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="331.0" layoutY="17.0" minWidth="0.0" mnemonicParsing="false" onAction="#OpenDrinksMenu" prefHeight="27.0" stylesheets="@buttontemplate.css" text="Drinks" textFill="WHITE">
+                                       <font>
+                                          <Font name="Impact" size="14.0" />
+                                       </font>
+                                    </Button>
+                                </buttons>
+                              </ButtonBar>
+                              <ScrollPane prefHeight="294.0" prefWidth="438.0">
+                                 <content>
+                                    <GridPane fx:id="DrinksContainer" prefHeight="0.0" prefWidth="0.0">
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="339.0" prefWidth="158.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="166.0" text="Store">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </FlowPane>
                </children></AnchorPane>
         </items>
       </SplitPane>

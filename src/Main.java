@@ -26,8 +26,8 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         
-        FoodMenu M = new FoodMenu();
-        M.run();
+        // FoodMenu M = new FoodMenu();
+        // M.run();
         launch(args);
         Order newOrder = new Order();
         newOrder.createOrder();
