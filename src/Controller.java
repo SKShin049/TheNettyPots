@@ -21,6 +21,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.input.MouseEvent;
 
 
 public class Controller extends ShoppingCart implements Initializable {
@@ -38,6 +40,9 @@ public class Controller extends ShoppingCart implements Initializable {
     private GridPane DessertsContainer;
     @FXML
     private GridPane DrinksContainer;
+    @FXML
+    private GridPane CartPane;
+
 
      @FXML
     private VBox cardLayout;
@@ -46,12 +51,15 @@ public class Controller extends ShoppingCart implements Initializable {
 
         @Override
     public void initialize(URL location, ResourceBundle resources) {
-            run();
+            initializeMenu();
+            initializeCart();
             initialize(DessertMenu,DessertsContainer);
             initialize(PizzaMenu,ItemContainer);
             initialize(SideMenu,SidesContainer);
             initialize(DrinkMenu,DrinksContainer);
             initialize(SaladMenu,SaladsContainer);
+            initialize(cart, CartPane);
+            
         //     int column = 0;
         //     int row = 1;
             
@@ -91,6 +99,35 @@ public class Controller extends ShoppingCart implements Initializable {
             
             
             if(column == 2){
+                column =0;
+                row++;
+            }
+
+            pane.add(cardBox, column++, row);
+            GridPane.setMargin(cardBox, new Insets(10));
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+    }
+
+    public void initialize(ArrayList<Item> arr, GridPane pane) {
+                    int column = 0;
+            int row = 1;
+            
+                try {
+            for(int i = 0;i<arr.size();i++){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/resources/CartItemScene.fxml"));
+            HBox cardBox = fxmlLoader.load();
+            CardController cardController = fxmlLoader.getController();
+            cardController.setDataCart(arr.get(i));
+            //cardLayout.getChildren().add(cardBox);
+            
+            
+            if(column == 1){
                 column =0;
                 row++;
             }
@@ -215,7 +252,7 @@ public class Controller extends ShoppingCart implements Initializable {
     @FXML
     void OpenDessertsMenu(ActionEvent event) throws IOException{
         changeScene("DessertsMenuScene.fxml", event);
-        //initialize(DessertMenu);
+        
     }
 
     /** 
@@ -228,8 +265,6 @@ public class Controller extends ShoppingCart implements Initializable {
         changeScene("DrinksMenuScene.fxml", event);
         //initialize(DrinkMenu);
     }
-    
-
 
     
     /** 
@@ -244,6 +279,11 @@ public class Controller extends ShoppingCart implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+    }
+
+    @FXML
+    void c(ActionEvent event) {
 
     }
 

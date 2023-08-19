@@ -1,3 +1,10 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 /*
 @author Ryan Perez
@@ -12,38 +19,74 @@ public class ShoppingCart extends FoodMenu{
 
     ArrayList<Item> cart = new ArrayList<>();
     double tax;
+    String orderFileName = "/Users/ryan/TheNettyPots/TheNettyPots/src/resources/cart.txt";
     
+    public void addToCartFile(Item item) throws IOException{
+        
+
+        try(FileWriter orderWriter = new FileWriter(orderFileName, true); 
+            BufferedWriter itemInfo = new BufferedWriter(orderWriter);
+            PrintWriter out = new PrintWriter(itemInfo))
+            {
+            out.println(item.foodType + "_" + item.foodName + "_" + item.foodPrice + "_" + item.imgSrc);
+        } 
+        catch (IOException e) {
+            System.out.println("function no work");
+        }
+    }
+
+    public void fillCart(){
+        File file = new File(orderFileName);
+
+        try {                                                               //This try catch will read our MenuFile(Database that contains our menu items) line by line, and allows our fillMenu function
+            FileReader fileReader = new FileReader(file);                   //to insert each menu item into the proper menu array.
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line = bufferedReader.readLine();
+
+            while (line != null) {
+                //System.out.println(line);
+                addToCart(line);
+                line = bufferedReader.readLine();
+            }
+            bufferedReader.close();
+            fileReader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void initializeCart(){
+        fillCart();
+    }
+
     /*
      * This will calculate the subtotal of the users cart
      */
     public double CalculateSubTotal(){
-        return 0;
+        double subtotal = 0;
+        for (int i = 0;i<cart.size();i++){
+            subtotal = subtotal + cart.get(i).foodPrice;
+        }
+        return subtotal;
     }
 
-
-    
-    /** 
-     * When a item is added to the cart(ArrayList), this information will be added to a database, this will take that Item and add it to the database.
-     * @param item
-     */
-    public void addToFile(Item item){
-
+    public void printCart(){
+        for (Item item : cart) {
+            System.out.println(item.foodType+ ": " +item.foodName + " " + item.foodPrice);
+        }
     }
 
-    /** 
-     * When a item is removed from the cart(ArrayList), this information will be removed from the database, this will take out that Item from the database.
-     * @param item
-     */
-    public void removeFromFile(Item item){
-        
-    }
 /** 
      * This will add an item to the cart, and call on addToFile() to also add it to the database
      * @param item
      */
-    public void addToCart(Item item){
+    public void addToCart(String line){
+        String[] parts = line.split("_");
+        double price = Double.parseDouble(parts[2]);
+        CustomOption[] option = new CustomOption[3];
+        Item item = new Item(parts[1], parts[0], price, option, parts[3]);
         cart.add(item);
-        addToFile(item);
     }
 /** 
      * This will remove an item from the cart, and call on removeFromFile() to also remove it from the database.
@@ -51,7 +94,6 @@ public class ShoppingCart extends FoodMenu{
      */
     public void removeFromCart(Item item){
         cart.remove(item);
-        removeFromFile(item);
     }
 
 

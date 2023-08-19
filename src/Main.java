@@ -28,8 +28,8 @@ public class Main extends Application {
         
         // FoodMenu M = new FoodMenu();
         // M.run();
+        // ShoppingCart c = new ShoppingCart();
+        // c.createOrder();
         launch(args);
-        Order newOrder = new Order();
-        newOrder.createOrder();
     }
 }

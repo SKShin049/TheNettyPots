@@ -8,10 +8,18 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 
 public class CardController extends ShoppingCart{
+
+    @FXML
+    private ImageView CartItemImg;
+
+    @FXML
+    private Label CartItemName;
+
+    @FXML
+    private Label CartItemPrice;
 
     @FXML
     private Label ItemName;
@@ -35,10 +43,18 @@ public class CardController extends ShoppingCart{
     void addToCart(ActionEvent event) throws IOException {
         //System.out.println(ItemName.getText());
         Item temp = search(ItemName.getText());
-        System.out.print(temp.foodName + " " + temp.foodPrice+ " "+ temp.foodType);
-        cart.add(temp);
-        System.out.println(cart.get(0).foodName);
+        //System.out.print(temp.foodName + " " + temp.foodPrice+ " "+ temp.foodType);
+        addToCartFile(temp);
+        //printCart();
 
+    }
+
+        @FXML
+    void RemoveFromCart(ActionEvent event) {
+        Item temp = search(ItemName.getText());
+        System.out.print(temp.foodName + " " + temp.foodPrice+ " "+ temp.foodType);
+        cart.remove(temp);
+        System.out.println(cart.get(0).foodName);
     }
 
     
@@ -53,9 +69,17 @@ public class CardController extends ShoppingCart{
 
     }
 
+    public void setDataCart(Item item){
+        Image image = new Image(getClass().getResourceAsStream("/resources/" +item.getImgSrc()));
+        CartItemImg.setImage(image);
+
+        CartItemName.setText(item.getfoodName());
+        CartItemPrice.setText("$" + item.getFoodPrice());
+    }
+
     public Item search(String ItemName){
         FoodMenu m = new FoodMenu();
-        m.run();
+        m.initializeMenu();
         Item temp = new Item(null, null, 0, null, null);
         for (int i =0;i<m.PizzaMenu.length;i++){
             if (m.PizzaMenu[i].foodName.equals(ItemName)){
