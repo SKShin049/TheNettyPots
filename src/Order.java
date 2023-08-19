@@ -11,12 +11,14 @@ e)  Class interface holds all of the functions that the implementations use. Met
 */
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
-public class Order extends ShoppingCart {
+public class Order extends User {
     //note: this should inherit cart class
     double total;
     double deliveryFee;
@@ -38,19 +40,32 @@ public class Order extends ShoppingCart {
     }
 
     //8/16/23 METHOD IS NOT COMPLETE
-    public void createOrder(){
-        File customerOrder = new File("CustomerOrder.txt"); //creates customerOrder file object
-        System.out.println(System.getProperty("user.dir"));
-        try {
-            FileWriter orderWriter = new FileWriter("CustomerOrder.txt");
-            orderWriter.write("testing");
-            orderWriter.close();
+       public void createOrder() throws IOException{
+        int orderNum = 1000;
+        String orderFileName = "/resources/" + Integer.toString(orderNum) + ".txt";
+        File customerOrder = new File(orderFileName); //creates customerOrder file object
+        while(customerOrder.exists()){
+            orderNum++;
+            orderFileName = "/resources/" + Integer.toString(orderNum) + ".txt";
+            customerOrder = new File(orderFileName);
+        }
+        customerOrder.createNewFile();
+        //System.out.println(System.getProperty("user.dir"));
+
+         try(FileWriter orderWriter = new FileWriter(orderFileName, true); 
+            BufferedWriter itemInfo = new BufferedWriter(orderWriter);
+            PrintWriter out = new PrintWriter(itemInfo))
+            {
+            out.println(userID);
+            out.println(firstName +" "+ lastName);
+            out.println("OrderTimeStamp");
+            out.println("Delivery or Takeout");
+            out.println("items");
         } 
         catch (IOException e) {
-            // TODO: Auto-generated catch block
-            e.printStackTrace();
+            System.out.println("function no work");
         }
-        
+
         //TODO: generate customerOrder with items chosen in ShoppingCart.java
     }
 
