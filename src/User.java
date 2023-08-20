@@ -19,4 +19,34 @@ public class User {
     String addressLineTwo;
     String state;
     int zipCode;
+
+    public String getUserID(){
+        return userID;
+    }
+    public String getPassword(){
+        return password;
+    }
+    public String getFirstName(){
+        return firstName;
+    }
+    public String getLastName(){
+        return lastName;
+    }
+    public String getAddressLineOne(){
+        return addressLineOne;
+    }
+    public String getAddressLineTwo(){
+        return addressLineTwo;
+    }
+
+    User(String userID, String password, String firstName, String lastName, String addressLineOne, String addressLineTwo, String state, int zipCode){
+        this.userID = userID;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.addressLineOne = addressLineOne;
+        this.addressLineTwo = addressLineTwo;
+        this.state = state;
+        this.zipCode = zipCode;
+    }
 }
