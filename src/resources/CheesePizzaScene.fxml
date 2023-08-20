@@ -7,8 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="160.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CardController">
+<VBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="160.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CardController">
    <children>
       <ImageView fx:id="Itemimage" fitHeight="117.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -21,6 +20,7 @@
             <Label fx:id="ItemPrice" alignment="CENTER" prefHeight="18.0" prefWidth="174.0" text="Price" />
             <Button fx:id="addItem" mnemonicParsing="false" onAction="#addToCart" prefHeight="26.0" prefWidth="163.0" stylesheets="@template.css" text="Add to Cart" textFill="WHITE" />
             <ChoiceBox fx:id="SizeOption" prefHeight="26.0" prefWidth="169.0" />
+            <Label fx:id="sizePtr" text="Small" />
          </children>
       </VBox>
    </children>
