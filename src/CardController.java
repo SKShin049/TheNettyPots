@@ -2,15 +2,27 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 
 public class CardController extends ShoppingCart{
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    @FXML
+    private Label sizePtr;
 
     @FXML
     private ImageView CartItemImg;
@@ -31,7 +43,7 @@ public class CardController extends ShoppingCart{
     private ImageView Itemimage;
 
     @FXML
-    private ChoiceBox<?> SizeOption;
+    private ChoiceBox<String> SizeOption;
 
     @FXML
     private Button addItem;
@@ -50,11 +62,12 @@ public class CardController extends ShoppingCart{
     }
 
         @FXML
-    void RemoveFromCart(ActionEvent event) {
-        Item temp = search(ItemName.getText());
+    void RemoveFromCart(ActionEvent event) throws IOException {
+        Item temp = search(CartItemName.getText());
+        String line = temp.foodType + "_" + temp.foodName +"_" + temp.foodPrice + "_" + temp.imgSrc;
         System.out.print(temp.foodName + " " + temp.foodPrice+ " "+ temp.foodType);
-        cart.remove(temp);
-        System.out.println(cart.get(0).foodName);
+        removeFromCartFile(line);
+        changeScene("CartScene.fxml", event);
     }
 
     
@@ -109,6 +122,15 @@ public class CardController extends ShoppingCart{
             }}
         return temp;
         
+    }
+
+    public void changeScene(String fxmlName, ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("/resources/"+fxmlName));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 }
 

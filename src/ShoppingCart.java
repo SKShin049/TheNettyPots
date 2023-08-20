@@ -92,8 +92,28 @@ public class ShoppingCart extends FoodMenu{
      * This will remove an item from the cart, and call on removeFromFile() to also remove it from the database.
      * @param item
      */
-    public void removeFromCart(Item item){
-        cart.remove(item);
+    public void removeFromCartFile(String line) throws IOException{
+        File inputFile = new File("/Users/ryan/TheNettyPots/TheNettyPots/src/resources/cart.txt");
+        File tempFile = new File("/Users/ryan/TheNettyPots/TheNettyPots/src/resources/Tempcart.txt");
+        tempFile.createNewFile();
+
+        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+        String lineToRemove = line;
+        String currentLine;
+
+        while((currentLine = reader.readLine()) != null) {
+    // trim newline when comparing with lineToRemove
+            String trimmedLine = currentLine.trim();
+            if(trimmedLine.equals(lineToRemove)) continue;
+            writer.write(currentLine + System.getProperty("line.separator"));
+        }
+        writer.close(); 
+        reader.close(); 
+        inputFile.delete();
+        boolean successful = tempFile.renameTo(inputFile);
+        System.out.println(successful);
     }
 
 
