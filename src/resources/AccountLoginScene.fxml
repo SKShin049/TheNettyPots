@@ -47,12 +47,12 @@
                         <Font name="Impact" size="35.0" />
                      </font>
                   </Text>
-                  <Button layoutX="147.0" layoutY="135.0" mnemonicParsing="false" onAction="#AccountLogin" prefHeight="33.0" prefWidth="111.0" stylesheets="@template.css" text="Login" textFill="#fcfafa">
+                  <Button layoutX="147.0" layoutY="135.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="111.0" stylesheets="@template.css" text="Login" textFill="#fcfafa">
                      <font>
                         <Font name="Avenir Book" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="336.0" layoutY="135.0" mnemonicParsing="false" onAction="#AccountSignUp" prefHeight="33.0" prefWidth="111.0" stylesheets="@template.css" text="Sign Up" textFill="#fcfafa">
+                  <Button layoutX="336.0" layoutY="135.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="111.0" stylesheets="@template.css" text="Sign Up" textFill="#fcfafa">
                      <font>
                         <Font name="Avenir Book" size="18.0" />
                      </font>
