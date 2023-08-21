@@ -65,32 +65,36 @@ public class User
         //creates a File object for Scanner to refer to + read from
         //doesn't actually create a new file
         Scanner in = new Scanner (new File ("resources/AccountDB.txt"));
+        
         //uses colon as delimiter when reading login info from txt file
         in.useDelimiter(";"); 
+        
         //reads from user input
         Scanner userIn = new Scanner (System.in);
         String nulled = null;
             
         User account = new User("none", "none", "none", "none", "none", "none", "none", 00000);
-        //writing to file using ObjectOutputStream
 
         System.out.println("1) Login");
         System.out.println("2) Signup");
         System.out.print("Please make your selection: ");
+        
+        boolean userSuccess = false;
+        boolean passSuccess = false;
+        String compare;
+        int indexCount = 0;
         int choice = userIn.nextInt();
+
+        File file = new File("resources/AccountDB.txt");
+        ArrayList<Scanner> scanList = new ArrayList<Scanner>();
+
         //prevents skipping from reading int variables
         userIn.nextLine(); 
-
         switch (choice)
         {
             case 1:
             {
-                //will be used to store compared values
-                String compare;
-                Boolean userSuccess = false;
-                int indexCount = 0;
-                File file = new File("resources/AccountDB.txt");
-                ArrayList<Scanner> scanList = new ArrayList<Scanner>();
+                //will be used to compare stored values in text file
                 try 
                 {
                     while (!userSuccess)
@@ -109,7 +113,6 @@ public class User
                         account.username = userIn.nextLine();
                         System.out.println();
 
-                        System.out.println("Searching for " + account.username + "...");
                         while (scanList.get(indexCount).hasNext())
                         {
                             
@@ -118,15 +121,16 @@ public class User
                             if (compare.contains(account.username))
                             {
                                 System.out.println("FOUND IT!");
+                                System.out.println();
                                 userSuccess = true;
+                                break;
                             }
                             else
                             {
                                 System.out.println("Not found...");
+                                System.out.println("Please try again.");
                             }
                         }
-                        System.out.println("Please try again.");
-
                         scanList.get(indexCount).close();
                         scanList.remove(indexCount);
                     }
@@ -135,20 +139,79 @@ public class User
                 {
                     System.out.println("CAUGHT AN EXCEPTION!");
                 }
-            }
+
+                //check if password exists, else throw an error
+                try 
+                {
+                    while (!passSuccess)
+                    {
+                        //reset Scanner + use colon delimiter
+                        scanList.add(new Scanner(file));
+                        scanList.get(indexCount).useDelimiter(";");
+
+                        //check if username exists, else throw an error?
+                        System.out.print("Password: ");
+
+                        //receives username from user
+                        account.password = userIn.nextLine();
+                        System.out.println();
+
+                        while (scanList.get(indexCount).hasNext())
+                        {
+                            compare = scanList.get(indexCount).next();
+                            System.out.println("Searchiiiiiiiiing: " + compare);
+                            if (compare.contains(account.password))
+                            {
+                                System.out.println("FOUND IT!");
+                                System.out.println();
+                                passSuccess = true;
+                                break;
+                            }
+                            else
+                            {
+                                System.out.println("Not found...");
+                                System.out.println("Please try again.");
+                            }
+                        }
+                        scanList.get(indexCount).close();
+                        scanList.remove(indexCount);
+                    }
+                }
+                catch (NoSuchElementException e)
+                {
+                    System.out.println("CAUGHT AN EXCEPTION!");
+                }
+
+
+
+                //if account.username and account.password match what is on AccountDB.txt, then login and load previous orders/info,etc.
+                if ((userSuccess == true) && (passSuccess == true))
+                {
+                    System.out.println("Successfully logged in!");
                     
-            //check if password exists, else throw an error
-            System.out.println("Password: ");
-            account.password = userIn.nextLine();
+                    //reset Scanner + use colon delimiter
+                    scanList.add(new Scanner(file));
+                    scanList.get(indexCount).useDelimiter(";");
 
-            //if account.username and account.password match what is on AccountDB.txt, then login and load previous orders/info,etc.
-
-            //print info until it reaches null of that paragraph
-            while (!(nulled = in.nextLine()).isEmpty())
-            {
-                String[] values = nulled.split("\\s+");
-                System.out.print("entered: " + Arrays.toString(values) + "\n");
+                     while (scanList.get(indexCount).hasNext())
+                    {
+                        compare = scanList.get(indexCount).next();
+                        if (compare.contains(account.password))
+                        {
+                            while (compare != "\n")
+                            {
+                                System.out.println(compare);
+                                compare = scanList.get(indexCount).next();
+                            }
+                        }
+                    }
+                    scanList.get(indexCount).close();
+                    scanList.remove(indexCount);
+                }
+                break;
             }
+
+
 
             case 2:
             {
@@ -220,6 +283,7 @@ public class User
             }
         }
 
+        System.out.println("You've reached the end!");
         in.close();
         userIn.close();
         out.close();
