@@ -88,23 +88,32 @@ public class User
                 //will be used to store compared values
                 String compare;
                 Boolean userSuccess = false;
-
+                int indexCount = 0;
+                File file = new File("resources/AccountDB.txt");
+                ArrayList<Scanner> scanList = new ArrayList<Scanner>();
                 try 
                 {
                     while (!userSuccess)
                     {
+                        //reset Scanner + use colon delimiter
+                        scanList.add(new Scanner(file));
+                        scanList.get(indexCount).useDelimiter(";");
+
                         //if login, read info from file
                         System.out.println("Please login.");
 
                         //check if username exists, else throw an error?
-                        System.out.println("Username: ");
+                        System.out.print("Username: ");
 
                         //receives username from user
                         account.username = userIn.nextLine();
+                        System.out.println();
 
-                        while (in.hasNext())
+                        System.out.println("Searching for " + account.username + "...");
+                        while (scanList.get(indexCount).hasNext())
                         {
-                            compare = in.next();
+                            
+                            compare = scanList.get(indexCount).next();
                             System.out.println("Searchiiiiiiiiing: " + compare);
                             if (compare.contains(account.username))
                             {
@@ -117,6 +126,9 @@ public class User
                             }
                         }
                         System.out.println("Please try again.");
+
+                        scanList.get(indexCount).close();
+                        scanList.remove(indexCount);
                     }
                 }
                 catch (NoSuchElementException e)
@@ -207,7 +219,7 @@ public class User
                 //if nextLine is null, then stop reading.
             }
         }
-            
+
         in.close();
         userIn.close();
         out.close();
