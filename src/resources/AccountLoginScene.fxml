@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <SplitPane dividerPositions="0.14106425702811246" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #c10000;">
+               <children>
+                  <Button layoutX="300.0" layoutY="-4.0" mnemonicParsing="false" onAction="#OpenStoreInfo" onMouseClicked="#OpenStoreInfo" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Store Info" textAlignment="CENTER" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Avenir Book" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="522.0" layoutY="11.0" mnemonicParsing="false" onAction="#viewAccount" stylesheets="@template.css" text="Account" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Avenir Book" size="15.0" />
+                     </font></Button>
+                  <Button layoutX="450.0" layoutY="11.0" mnemonicParsing="false" onAction="#OpenCart" stylesheets="@template.css" text="Cart" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Avenir Book" size="15.0" />
+                     </font></Button>
+                  <Button layoutY="-1.0" mnemonicParsing="false" onAction="#returnToHome" prefHeight="53.0" prefWidth="130.0" stylesheets="@template.css" text="PizzaNetti" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Book" size="20.0" />
+                     </font></Button>
+                  <Button accessibleRole="MENU_BUTTON" layoutX="212.0" layoutY="-5.0" mnemonicParsing="false" onAction="#OpenMenu" onMouseClicked="#OpenMenu" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Menu" textAlignment="CENTER" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Avenir Book" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Button>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Text layoutX="226.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Now">
+                     <font>
+                        <Font name="Impact" size="35.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="147.0" layoutY="135.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="111.0" stylesheets="@template.css" text="Carry Out" textFill="#fcfafa">
+                     <font>
+                        <Font name="Avenir Book" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="336.0" layoutY="135.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="111.0" stylesheets="@template.css" text="Delivery" textFill="#fcfafa">
+                     <font>
+                        <Font name="Avenir Book" size="18.0" />
+                     </font>
+                  </Button>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</Pane>
