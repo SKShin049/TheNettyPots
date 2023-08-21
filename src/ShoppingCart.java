@@ -19,7 +19,7 @@ public class ShoppingCart extends FoodMenu{
 
     ArrayList<Item> cart = new ArrayList<>();
     double tax;
-    String orderFileName = "/Users/ryan/TheNettyPots/TheNettyPots/src/resources/cart.txt";
+    String orderFileName = "/Users/MorganBarrett/Desktop/School/CSUN/Summer2023/COMP380/TheNettyPots/src/resources/cart.txt";
     
     public void addToCartFile(Item item) throws IOException{
         
@@ -93,8 +93,8 @@ public class ShoppingCart extends FoodMenu{
      * @param item
      */
     public void removeFromCartFile(String line) throws IOException{
-        File inputFile = new File("/Users/ryan/TheNettyPots/TheNettyPots/src/resources/cart.txt");
-        File tempFile = new File("/Users/ryan/TheNettyPots/TheNettyPots/src/resources/Tempcart.txt");
+        File inputFile = new File("/Users/MorganBarrett/Desktop/School/CSUN/Summer2023/COMP380/TheNettyPots/src/resources/cart.txt");
+        File tempFile = new File("/Users/MorganBarrett/Desktop/School/CSUN/Summer2023/COMP380/TheNettyPots/src/resources/Tempcart.txt");
         tempFile.createNewFile();
 
         BufferedReader reader = new BufferedReader(new FileReader(inputFile));

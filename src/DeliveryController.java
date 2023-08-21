@@ -10,11 +10,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 
 
-public class DeliveryController extends User{
+public class DeliveryController extends Order{
 private Parent root;
 private Stage stage;
 private Scene scene;
@@ -41,10 +42,71 @@ public void delivery(ActionEvent action) throws IOException{
     //if userID exists, go straight to menu, else, go to delivery address input
     if(userID !=  null){
         changeScene(menuScene, action);
+        //create order text file here if they are an existing user
     }
     else{
         changeScene(deliveryScene, action);
     }
  }
+
+    @FXML
+    private TextField city;
+
+    @FXML
+    private TextField guestFirstName;
+
+    @FXML
+    private TextField guestLastName;
+
+    @FXML
+    private TextField state;
+
+    @FXML
+    private TextField street1;
+
+    @FXML
+    private TextField street2;
+
+    @FXML
+    private TextField zip;
+
+    @FXML
+    void OpenCart(ActionEvent event) {
+
+    }
+
+    @FXML
+    void OpenMenu(ActionEvent event) {
+
+    }
+
+    @FXML
+    void OpenStoreInfo(ActionEvent event) {
+
+    }
+
+    @FXML
+    void c(ActionEvent event) {
+        //next button
+        //have this function create the order text file
+    }
+
+    @FXML
+    void returnToHome(ActionEvent event) {
+
+    }
+
+    @FXML
+    void saveUserData(ActionEvent event) {
+        firstName = guestFirstName.getAccessibleText();
+        lastName = guestLastName.getAccessibleText();
+        //finish
+    }
+
+    @FXML
+    void viewAccount(ActionEvent event) {
+
+    }
+
 
 }

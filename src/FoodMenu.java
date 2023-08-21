@@ -28,7 +28,7 @@ public class FoodMenu{
 
 
 
-    private String filePath = "/Users/ryan/TheNettyPots/TheNettyPots/src/resources/FoodMenu.txt";
+    private String filePath = "/Users/MorganBarrett/Desktop/School/CSUN/Summer2023/COMP380/TheNettyPots/src/resources/FoodMenu.txt";
 
     /*
      * getMenuItems function reads our FoodMenu.txt(database) line by line, and allows fillMenu() to insert into the correct menu arrays
