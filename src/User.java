@@ -207,11 +207,6 @@ public class User
                 //if nextLine is null, then stop reading.
             }
         }
-
-
-        //checking to see if it was done correctly (obsolete)
-        //System.out.println(account.username);
-        //System.out.println(account.password);
             
         in.close();
         userIn.close();
