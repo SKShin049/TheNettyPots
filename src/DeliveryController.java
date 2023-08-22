@@ -32,7 +32,7 @@ public void changeScene(String fxmlName, ActionEvent event) throws IOException{
     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     scene = new Scene(root);
     stage.setScene(scene);
-     stage.show();
+    stage.show();
 }
 
 @FXML
@@ -40,7 +40,7 @@ public void delivery(ActionEvent action) throws IOException{
     String deliveryScene = "StartDeliveryScene.fxml";
     String menuScene = "FoodMenuScene.fxml";
     //if userID exists, go straight to menu, else, go to delivery address input
-    if(userID !=  null){
+    if(username !=  null){
         changeScene(menuScene, action);
         //create order text file here if they are an existing user
     }
@@ -49,8 +49,8 @@ public void delivery(ActionEvent action) throws IOException{
     }
  }
 
-    @FXML
-    private TextField city;
+   // @FXML
+   // private TextField city;
 
     @FXML
     private TextField guestFirstName;
@@ -59,30 +59,32 @@ public void delivery(ActionEvent action) throws IOException{
     private TextField guestLastName;
 
     @FXML
-    private TextField state;
+    private TextField guestState;
 
     @FXML
-    private TextField street1;
+    private TextField guestStreet1;
 
     @FXML
-    private TextField street2;
+    private TextField guestStreet2;
 
     @FXML
-    private TextField zip;
+    private TextField guestZip;
 
     @FXML
-    void OpenCart(ActionEvent event) {
-
+    void OpenCart(ActionEvent event) throws IOException{
+        changeScene("CartScene.fxml", event);
     }
 
     @FXML
-    void OpenMenu(ActionEvent event) {
-
+    void OpenMenu(ActionEvent event) throws IOException{
+        String FoodMenufile = "FoodMenuScene.fxml";
+        changeScene(FoodMenufile, event);
     }
 
     @FXML
-    void OpenStoreInfo(ActionEvent event) {
-
+    void OpenStoreInfo(ActionEvent event) throws IOException{
+        String StoreInfofile = "StoreInfoScene.fxml";
+        changeScene(StoreInfofile, event);
     }
 
     @FXML
@@ -92,20 +94,20 @@ public void delivery(ActionEvent action) throws IOException{
     }
 
     @FXML
-    void returnToHome(ActionEvent event) {
-
+    void returnToHome(ActionEvent event) throws IOException{
+        changeScene("MainScene.fxml", event);
     }
 
     @FXML
     void saveUserData(ActionEvent event) {
-        firstName = guestFirstName.getAccessibleText();
-        lastName = guestLastName.getAccessibleText();
+        //firstName = guestFirstName.getAccessibleText();
+        //lastName = guestLastName.getAccessibleText();
         //finish
     }
 
     @FXML
-    void viewAccount(ActionEvent event) {
-
+    void viewAccount(ActionEvent event) throws IOException{
+        changeScene("AccountSignUpScene.fxml", event);
     }
 
 

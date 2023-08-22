@@ -167,7 +167,6 @@ public class Controller extends ShoppingCart implements Initializable {
     void OpenMenu(ActionEvent event) throws IOException{
         String FoodMenufile = "FoodMenuScene.fxml";
         changeScene(FoodMenufile, event);
-        //initialize(PizzaMenu);
     }
 
     
@@ -218,7 +217,7 @@ public class Controller extends ShoppingCart implements Initializable {
      */
     @FXML
     void viewAccount(ActionEvent event) throws IOException{
-        changeScene("AccountScene.fxml", event);
+        changeScene("AccountSignUpScene.fxml", event);
     }
 
     /** 

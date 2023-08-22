@@ -29,7 +29,7 @@ public class Order extends User {
     double deliveryFee;
     String orderNumber;
     Order order;
-    User customer = new User(); //customer object from User class
+    //User customer = new User(); //customer object from User class
 
     //public Order(){
         //empty no-args constructor to resolve undefined explicit constructor 
@@ -71,7 +71,7 @@ public class Order extends User {
             BufferedWriter itemInfo = new BufferedWriter(orderWriter);
             PrintWriter out = new PrintWriter(itemInfo))
             {
-            out.println(userID);
+            out.println(username);
             out.println(firstName +" "+ lastName);
             out.println("orderTime");
             out.println("cart");
@@ -79,6 +79,7 @@ public class Order extends User {
         catch (IOException e) {
             System.out.println("function no work");
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
      
@@ -110,10 +111,21 @@ public class Order extends User {
         } else {
             System.out.println("out of range");
         }
+=======
+
+        //needs to pull shopping cart items when checkout is clicked
+    }
+
+    //need a function to pull items from cart when checkout is done
+    public void addItemsToOrder(){
+        //read the cart.txt
+        //takes a line from cart.txt
+        //writes line to customerorder.txt
+>>>>>>> 255507165d18621f360a684cad3507c52eea4cc3
     }
 
 
     public void checkout(){
-        //needs confirmation code
+        
     }
 }
