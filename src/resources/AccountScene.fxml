@@ -8,13 +8,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountController">
    <children>
       <SplitPane dividerPositions="0.14106425702811246" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #c10000;">
                <children>
-                  <Button layoutX="300.0" layoutY="-4.0" mnemonicParsing="false" onAction="#OpenStoreInfo" onMouseClicked="#OpenStoreInfo" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Store Info" textAlignment="CENTER" textFill="WHITE" underline="true">
+                  <Button layoutX="300.0" layoutY="-4.0" mnemonicParsing="false" onAction="#OpenStoreInfo" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Store Info" textAlignment="CENTER" textFill="WHITE" underline="true">
                      <font>
                         <Font name="Avenir Book" size="15.0" />
                      </font>
@@ -31,7 +31,7 @@
                      <font>
                         <Font name="Avenir Book" size="20.0" />
                      </font></Button>
-                  <Button accessibleRole="MENU_BUTTON" layoutX="212.0" layoutY="-5.0" mnemonicParsing="false" onAction="#OpenMenu" onMouseClicked="#OpenMenu" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Menu" textAlignment="CENTER" textFill="WHITE" underline="true">
+                  <Button accessibleRole="MENU_BUTTON" layoutX="212.0" layoutY="-5.0" mnemonicParsing="false" onAction="#OpenMenu" prefHeight="63.0" prefWidth="87.0" stylesheets="@template.css" text="Menu" textAlignment="CENTER" textFill="WHITE" underline="true">
                      <font>
                         <Font name="Avenir Book" size="15.0" />
                      </font>

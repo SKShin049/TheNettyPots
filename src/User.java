@@ -66,16 +66,20 @@ public class User
         this.zipCode = zipCode;
     }
 
-    public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException, NoSuchElementException
+    public User(){
+        //empty constructor
+    }
+
+    public static void userMain() throws FileNotFoundException, IOException, ClassNotFoundException, NoSuchElementException
     {
-        FileWriter fw = new FileWriter("resources/AccountDB.txt", true);
+        FileWriter fw = new FileWriter("/Users/MorganBarrett/Desktop/School/CSUN/Summer2023/COMP380/TheNettyPots/src/resources/AccountDB.txt", true);
         BufferedWriter bw = new BufferedWriter(fw);
         //writes to file
         PrintWriter out = new PrintWriter(bw);
         
         //creates a File object for Scanner to refer to + read from
         //doesn't actually create a new file
-        Scanner in = new Scanner (new File ("resources/AccountDB.txt"));
+        Scanner in = new Scanner (new File ("/Users/MorganBarrett/Desktop/School/CSUN/Summer2023/COMP380/TheNettyPots/src/resources/AccountDB.txt"));
         
         //uses colon as delimiter when reading login info from txt file
         in.useDelimiter(";"); 

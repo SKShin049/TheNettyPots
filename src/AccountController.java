@@ -19,6 +19,49 @@ public class AccountController
 	private Stage stage;
 	private Scene scene;
 
+	@FXML
+    void AccountLogin(ActionEvent event) {
+
+    }
+
+    @FXML
+    void AccountSignUp(ActionEvent event) {
+
+    }
+
+    @FXML
+    void OpenCart(ActionEvent event) throws IOException{
+        changeScene("CartScene.fxml", event);
+    }
+
+    @FXML
+    void OpenMenu(ActionEvent event) throws IOException{
+        String FoodMenufile = "FoodMenuScene.fxml";
+        changeScene(FoodMenufile, event);
+    }
+
+    @FXML
+    void OpenStoreInfo(ActionEvent event) throws IOException{
+        String StoreInfofile = "StoreInfoScene.fxml";
+        changeScene(StoreInfofile, event);
+    }
+
+    @FXML
+    void c(ActionEvent event) {
+
+    }
+
+    @FXML
+    void returnToHome(ActionEvent event) throws IOException{
+        changeScene("MainScene.fxml", event);
+    }
+
+    @FXML
+    void viewAccount(ActionEvent event) throws IOException{
+		//if logged in, open this scene, etc.
+        changeScene("AccountSignUpScene.fxml", event);
+    }
+
 	/** 
 	* ChangeScene function will change the scene for the GUI to a given fxml file name on an ActionEvent
 	* @param fxmlName

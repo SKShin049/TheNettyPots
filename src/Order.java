@@ -29,7 +29,7 @@ public class Order extends User {
     double deliveryFee;
     String orderNumber;
     Order order;
-    User customer = new User(); //customer object from User class
+    //User customer = new User(); //customer object from User class
 
     //public Order(){
         //empty no-args constructor to resolve undefined explicit constructor 
@@ -71,7 +71,7 @@ public class Order extends User {
             BufferedWriter itemInfo = new BufferedWriter(orderWriter);
             PrintWriter out = new PrintWriter(itemInfo))
             {
-            out.println(userID);
+            out.println(username);
             out.println(firstName +" "+ lastName);
             out.println("orderTime");
             out.println("cart");
@@ -79,23 +79,19 @@ public class Order extends User {
         catch (IOException e) {
             System.out.println("function no work");
         }
+
+        //needs to pull shopping cart items when checkout is clicked
     }
 
-
-    //Need to add the function that checks zipcode in delivery scene
-    public void checkRadius(int customerZip){
-        int[] zipCodes = {91330, 91324, 91325, 91343, 91345, 91326, 91311, 91306, 91335, 91406}; //zips in the surrounding area that we can deliver to
-        customer.zipCode = customerZip;
-        boolean inRange = Arrays.asList(zipCodes).contains(customerZip);
-        if(inRange == true){
-            System.out.println("in range");
-        } else {
-            System.out.println("out of range");
-        }
+    //need a function to pull items from cart when checkout is done
+    public void addItemsToOrder(){
+        //read the cart.txt
+        //takes a line from cart.txt
+        //writes line to customerorder.txt
     }
 
 
     public void checkout(){
-        //needs confirmation code
+        
     }
 }

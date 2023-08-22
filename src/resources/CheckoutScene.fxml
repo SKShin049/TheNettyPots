@@ -42,21 +42,11 @@
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Text layoutX="226.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Now">
+                  <Text layoutX="231.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout">
                      <font>
                         <Font name="Impact" size="35.0" />
                      </font>
                   </Text>
-                  <Button layoutX="147.0" layoutY="135.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="111.0" stylesheets="@template.css" text="Carry Out" textFill="#fcfafa">
-                     <font>
-                        <Font name="Avenir Book" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="336.0" layoutY="135.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="111.0" stylesheets="@template.css" text="Delivery" textFill="#fcfafa">
-                     <font>
-                        <Font name="Avenir Book" size="18.0" />
-                     </font>
-                  </Button>
                </children></AnchorPane>
         </items>
       </SplitPane>
