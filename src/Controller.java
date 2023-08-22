@@ -18,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.GridPane;
@@ -283,6 +284,20 @@ public class Controller extends ShoppingCart implements Initializable {
     void OpenDrinksMenu(ActionEvent event) throws IOException{
         changeScene("DrinksMenuScene.fxml", event);
         //initialize(DrinkMenu);
+    }
+
+    
+     @FXML
+    private Label subtotal;
+    void SetSubtotalLabel(){
+        initializeCart();
+        double temp = 0;
+        temp = CalculateSubTotal();
+        if(temp >.01){
+            String s = Double.toString(temp);
+            subtotal.setText(s);
+        }
+        
     }
 
     

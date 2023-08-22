@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -107,11 +108,48 @@
                         </VBox>
                         <VBox prefHeight="339.0" prefWidth="158.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="166.0" text="Store">
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="166.0" text="Store Contact">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
+                              <SplitPane dividerPositions="0.7433823529411764" orientation="VERTICAL" prefHeight="310.0" prefWidth="172.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="226.0" prefWidth="157.0">
+                                       <children>
+                                          <VBox layoutX="43.0" layoutY="-17.0" prefHeight="230.0" prefWidth="157.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="(818)-123-4567" />
+                                                <Label alignment="CENTER" prefHeight="18.0" prefWidth="211.0" text="pizzanetti@gmail.com" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="135.0" prefWidth="157.0">
+                                       <children>
+                                          <VBox layoutX="14.0" layoutY="-70.0" prefHeight="67.2" prefWidth="156.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox prefHeight="36.0" prefWidth="157.0">
+                                                   <children>
+                                                      <Label prefHeight="18.0" prefWidth="73.0" text="Subtotal:" />
+                                                      <Label fx:id="subtotal" alignment="CENTER" prefHeight="18.0" prefWidth="95.0" text="SubtotalAmount">
+                                                         <HBox.margin>
+                                                            <Insets right="12.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <Button alignment="CENTER" mnemonicParsing="false" stylesheets="@template.css" text="Checkout" textFill="WHITE">
+                                                   <VBox.margin>
+                                                      <Insets left="75.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
                            </children>
                         </VBox>
                      </children>
