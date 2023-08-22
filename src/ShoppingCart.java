@@ -64,6 +64,7 @@ public class ShoppingCart extends FoodMenu{
      * This will calculate the subtotal of the users cart
      */
     public double CalculateSubTotal(){
+        //initializeCart();
         double subtotal = 0;
         for (int i = 0;i<cart.size();i++){
             subtotal = subtotal + cart.get(i).foodPrice;
@@ -99,6 +100,7 @@ public class ShoppingCart extends FoodMenu{
 
         BufferedReader reader = new BufferedReader(new FileReader(inputFile));
         BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+        boolean removed = false;
 
         String lineToRemove = line;
         String currentLine;
@@ -106,7 +108,10 @@ public class ShoppingCart extends FoodMenu{
         while((currentLine = reader.readLine()) != null) {
     // trim newline when comparing with lineToRemove
             String trimmedLine = currentLine.trim();
-            if(trimmedLine.equals(lineToRemove)) continue;
+            if(trimmedLine.equals(lineToRemove) && removed == false){
+                removed = true;
+                continue;
+            } 
             writer.write(currentLine + System.getProperty("line.separator"));
         }
         writer.close(); 

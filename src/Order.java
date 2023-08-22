@@ -66,8 +66,16 @@ public class Order extends User {
             System.out.println("function no work");
         }
 
+     
         //TODO: generate customerOrder with items chosen in ShoppingCart.java
     }
+
+    public void addCarttoOrderfile(){
+        //read the cart.txt
+        //takes a line from cart.txt
+        //write line to customerOrder.txt
+    }
+
 
     public void readyAt(){
         //take order time and add 25 mins

@@ -18,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.GridPane;
@@ -30,6 +31,8 @@ public class Controller extends ShoppingCart implements Initializable {
     private Scene scene;
     private Parent root;
 
+    @FXML
+    private Label subtotal;
     @FXML
     private GridPane ItemContainer;
     @FXML
@@ -51,8 +54,10 @@ public class Controller extends ShoppingCart implements Initializable {
 
         @Override
     public void initialize(URL location, ResourceBundle resources) {
+    
             initializeMenu();
             initializeCart();
+            //SetSubtotalLabel();
             initialize(DessertMenu,DessertsContainer);
             initialize(PizzaMenu,ItemContainer);
             initialize(SideMenu,SidesContainer);
@@ -141,6 +146,17 @@ public class Controller extends ShoppingCart implements Initializable {
         }
         
     }
+
+    void SetSubtotalLabel(){
+        initializeCart();
+        double temp = 0;
+        temp = CalculateSubTotal();
+        if(temp >.01){
+            String s = Double.toString(temp);
+            subtotal.setText(s);
+        }
+        
+    }
     
     /** 
      * OpenMenu function opens our FoodMenuScene.fxml
@@ -175,7 +191,11 @@ public class Controller extends ShoppingCart implements Initializable {
     @FXML
     void StartDelivery(ActionEvent event) throws IOException{
         String StartDeliveryFile = "StartDeliveryScene.fxml";
+        //if (user doesnt exist)
         changeScene(StartDeliveryFile, event);
+        //else createorderfile with account info
+        // take to menuScene
+        
     }
 
     
@@ -186,7 +206,7 @@ public class Controller extends ShoppingCart implements Initializable {
      */
     @FXML
     void StartTakeout(ActionEvent event) throws IOException{
-        String StartTakeoutfile = "StartTakeoutScene.fxml";
+        String StartTakeoutfile = "FoodMenuScene.fxml";
         changeScene(StartTakeoutfile, event);
     }
 
@@ -220,6 +240,7 @@ public class Controller extends ShoppingCart implements Initializable {
     @FXML
     void OpenCart(ActionEvent event) throws IOException{
         changeScene("CartScene.fxml", event);
+        
     }
 
     /** 

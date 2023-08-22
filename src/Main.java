@@ -7,6 +7,9 @@ e) M.run() executes other functions
 */
 
 
+import java.io.File;
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,12 +27,15 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
         // FoodMenu M = new FoodMenu();
         // M.run();
         // ShoppingCart c = new ShoppingCart();
         // c.createOrder();
         launch(args);
+        File cart = new File("/Users/ryan/TheNettyPots/TheNettyPots/src/resources/cart.txt");
+        cart.delete();
+        cart.createNewFile();
     }
 }
