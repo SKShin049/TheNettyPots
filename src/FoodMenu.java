@@ -27,14 +27,13 @@ public class FoodMenu{
     private int DKPtr = 0;
 
 
-
-    private String filePath = "/Users/MorganBarrett/Desktop/School/CSUN/Summer2023/COMP380/TheNettyPots/src/resources/FoodMenu.txt";
+    //private String filePath = "./src/resources/FoodMenu.txt";
 
     /*
      * getMenuItems function reads our FoodMenu.txt(database) line by line, and allows fillMenu() to insert into the correct menu arrays
      */
     private void getMenuItems(){
-        File file = new File(filePath);
+        File file = new File("./src/resources/FoodMenu.txt");
 
 
         try {                                                               //This try catch will read our MenuFile(Database that contains our menu items) line by line, and allows our fillMenu function
