@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 
 public class DeliveryOrder extends Order{
-    User customer = new User(){
+       User customer = new User(){
     };
 
     public void readyAt(){
@@ -16,14 +16,15 @@ public class DeliveryOrder extends Order{
     }
 
     //Need to add the function that checks zipcode in delivery scene
-    public static boolean checkRadius(int customerZip){
+    public boolean checkRadius(int customerZip){
         int[] zipCodes = {91330, 91324, 91325, 91343, 91345, 91326, 91311, 91306, 91335, 91406}; //zips in the surrounding area that we can deliver to
         //customer.zipCode = customerZip;
-        boolean inRange = Arrays.asList(zipCodes).contains(customerZip);
-        if(inRange == true){
-            return true;
-        } else {
-            return false;
+        for (int i : zipCodes) {
+            if (i == customerZip) {
+                return true;
+            }
         }
+        return false;
+
     }
 }

@@ -24,13 +24,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Order extends User {
-    //note: this should inherit cart class
+        //note: this should inherit cart class
     double total;
     double deliveryFee;
     String orderNumber;
     Order order;
+    int orderNum;
     //User customer = new User(); //customer object from User class
-
     //public Order(){
         //empty no-args constructor to resolve undefined explicit constructor 
     //}
@@ -42,7 +42,6 @@ public class Order extends User {
        // this.order = order;
         //this.orderTime = orderTime;
    // }
-
     /**
      * Function readyAt takes orderTime and adds 25mins
      */
@@ -51,38 +50,36 @@ public class Order extends User {
         long timeInSecs = date.getTimeInMillis();
         Date orderTime = new Date(timeInSecs + (25 * 60 * 1000));
     }
-
     /**
      * Function takes items from shopping cart and generates a .txt file containing the options that were in the car at checkout
      * @throws IOException
      */
-    public void createOrder() throws IOException{
-        int orderNum = 1000;
-        String orderFileName = "/resources/" + Integer.toString(orderNum) + ".txt";
+    public void createOrder(User user) throws IOException{
+         orderNum = 1000;
+        String orderFileName = "./TheNettyPots/src/resources/" + Integer.toString(orderNum) + ".txt";
         File customerOrder = new File(orderFileName); //creates customerOrder file object
         while(customerOrder.exists()){
             orderNum++;
-            orderFileName = "/resources/" + Integer.toString(orderNum) + ".txt";
+            orderFileName = "./TheNettyPots/src/resources/" + Integer.toString(orderNum) + ".txt";
             customerOrder = new File(orderFileName);
         }
         customerOrder.createNewFile();
-
+        System.out.println(orderFileName);
          try(FileWriter orderWriter = new FileWriter(orderFileName, true); 
             BufferedWriter itemInfo = new BufferedWriter(orderWriter);
             PrintWriter out = new PrintWriter(itemInfo))
             {
-            out.println(username);
-            out.println(firstName +" "+ lastName);
+            out.println(user.username);
+            out.println(user.firstName +" "+ user.lastName);
+            out.println(user.email);
             out.println("orderTime");
             out.println("cart");
         } 
         catch (IOException e) {
             System.out.println("function no work");
         }
-
         //needs to pull shopping cart items when checkout is clicked
     }
-
     //need a function to pull items from cart when checkout is done
     public void addItemsToOrder(){
         //read the cart.txt

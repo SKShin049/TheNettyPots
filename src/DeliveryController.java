@@ -27,14 +27,12 @@ public class DeliveryController extends Order{
 private Parent root;
 private Stage stage;
 private Scene scene;
-
 /** 
 * ChangeScene function will change the scene for the GUI to a given fxml file name on an ActionEvent
 * @param fxmlName
 * @param event
 * @throws IOException
 */
-
 public void changeScene(String fxmlName, ActionEvent event) throws IOException{
     root = FXMLLoader.load(getClass().getResource("/resources/"+fxmlName));
     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -42,15 +40,20 @@ public void changeScene(String fxmlName, ActionEvent event) throws IOException{
     stage.setScene(scene);
     stage.show();
 }
-
+DeliveryOrder deliveryOrder = new DeliveryOrder();
 
 @FXML
 public void delivery(ActionEvent action) throws IOException{
+    User u = new User();
+    User loggedUser = new User();
+    if (u.checkifLoggedIn()){
+        loggedUser = u.getLoggedIn();
+    }
     String deliveryScene = "StartDeliveryScene.fxml";
     String menuScene = "FoodMenuScene.fxml";
     //if userID exists, go straight to menu, else, go to delivery address input
     //
-    if(username !=  null && DeliveryOrder.checkRadius(zipCode) == true){
+    if(u.checkifLoggedIn() && deliveryOrder.checkRadius(loggedUser.zipCode) == true){
         changeScene(menuScene, action);
         //create order text file here if they are an existing user
     }
@@ -60,7 +63,7 @@ public void delivery(ActionEvent action) throws IOException{
  }
 
  public void createGuestOrder() throws IOException{
-        String orderFileName = "/resources/" + "GuestOrder" + ".txt";
+        String orderFileName = "./TheNettyPots/src/resources/" + "GuestOrder" + ".txt";
         File guestOrder = new File(orderFileName); //creates customerOrder file object
         guestOrder.createNewFile();
 
@@ -89,19 +92,14 @@ public void delivery(ActionEvent action) throws IOException{
 
     @FXML
     private TextField guestFirstName;
-
     @FXML
     private TextField guestLastName;
-
     @FXML
     private TextField guestState;
-
     @FXML
     private TextField guestStreet1;
-
     @FXML
     private TextField guestStreet2;
-
     @FXML
     private TextField guestZip;
 
@@ -118,13 +116,11 @@ public void delivery(ActionEvent action) throws IOException{
     void OpenCart(ActionEvent event) throws IOException{
         changeScene("CartScene.fxml", event);
     }
-
     @FXML
     void OpenMenu(ActionEvent event) throws IOException{
         String FoodMenufile = "FoodMenuScene.fxml";
         changeScene(FoodMenufile, event);
     }
-
     @FXML
     void OpenStoreInfo(ActionEvent event) throws IOException{
         String StoreInfofile = "StoreInfoScene.fxml";
@@ -133,12 +129,14 @@ public void delivery(ActionEvent action) throws IOException{
 
     @FXML //action event for "next" button
     void Next(ActionEvent event) throws IOException {
-        DeliveryOrder.checkRadius(Integer.parseInt(guestZip.getText())); 
-        if(DeliveryOrder.checkRadius(zipCode) == true){
+        int zip =Integer.parseInt(guestZip.getText()); 
+        if(deliveryOrder.checkRadius(zip) == true){
             createGuestOrder();
+            OpenMenu(event);
         } else{
             label.setText("Zip code is out of range. Please place carry out order instead.");
         }
+
     }
 
     @FXML
@@ -148,13 +146,11 @@ public void delivery(ActionEvent action) throws IOException{
 
     @FXML
     void saveUserData(ActionEvent event) {
-    
+
     }
 
     @FXML
     void viewAccount(ActionEvent event) throws IOException{
         changeScene("AccountSignUpScene.fxml", event);
     }
-
-
 }

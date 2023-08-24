@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -67,7 +68,7 @@ public class CardController extends ShoppingCart{
         String line = temp.foodType + "_" + temp.foodName +"_" + temp.foodPrice + "_" + temp.imgSrc;
         System.out.print(temp.foodName + " " + temp.foodPrice+ " "+ temp.foodType);
         removeFromCartFile(line);
-        changeScene("CartScene.fxml", event);
+        changeScene("CartScene.fxml", event);      
     }
 
     
