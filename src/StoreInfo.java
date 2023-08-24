@@ -2,7 +2,7 @@
  * Class Name: StoreInfo
  * Stores information about the business, such as Full Address and Phone Number.
  * Date of Code: 08/10/2023
- * @author Renzo Pereyra
+ * @author Summer S
  */
 
 /** 

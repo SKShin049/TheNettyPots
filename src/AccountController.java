@@ -2,7 +2,7 @@
  * Class Name: AccountController
  * This class will change scenes relative to the Account choices input by the user.
  * Date of Code: 08/20/2023
- * @author Renzo Pereyra
+ * @author Ryan Perez
  */
 
 import java.io.BufferedReader;
@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.control.Button;
 
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -33,6 +34,18 @@ public class AccountController extends User implements Initializable{
 	private Stage stage;
 	private Scene scene;
     private boolean usernameAvaliable = true;
+
+	@FXML
+    private Button SignUpButton;
+
+    @FXML
+    private Button continueButton;
+
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    private TextField username;
 
 	@FXML
     private TextField UCity;
@@ -149,8 +162,10 @@ public class AccountController extends User implements Initializable{
 
     @FXML
     void viewAccount(ActionEvent event) throws IOException{
-		//if logged in, open this scene, etc.
-        changeScene("AccountSignUpScene.fxml", event);
+		if(username != null){
+			changeScene("AccountScene", event);
+		}else
+        	changeScene("AccountSignUpScene.fxml", event);
     }
 
 	/** 

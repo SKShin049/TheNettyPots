@@ -108,6 +108,6 @@ public class Order extends User {
 
 
     public void checkout(){
-        //
+        //sends email confirmation
     }
 }

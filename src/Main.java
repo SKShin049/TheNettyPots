@@ -1,7 +1,7 @@
 /** 
 a) Main
 b) 8/8/23
-c) Summer S
+c) @author Summer S
 d) class which runs all other functions
 e) M.run() executes other functions
 */

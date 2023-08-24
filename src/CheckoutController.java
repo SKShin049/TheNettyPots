@@ -1,3 +1,8 @@
+/**
+ * @author Summer S
+ * @author Morgan B
+ * 
+ */
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
@@ -25,52 +30,47 @@ public class CheckoutController {
     stage.show();
     }
 
-    public class Controller {
+     @FXML
+     private TextField cardCVV;
 
-        @FXML
-        private TextField cardCVV;
+     @FXML
+     private TextField cardExpiry;
 
-        @FXML
-        private TextField cardExpiry;
+     @FXML
+     private TextField cardName;
 
-        @FXML
-        private TextField cardName;
+     @FXML
+     private TextField cardNum;
 
-        @FXML
-        private TextField cardNum;
+     @FXML
+     private Button confirmButton;
 
-        @FXML
-        private Button confirmButton;
+     @FXML
+    void OpenCart(ActionEvent event) throws IOException{
+        changeScene("CartScene.fxml", event);
+    }
 
-        @FXML
-        void OpenCart(ActionEvent event) {
+    @FXML
+    void OpenMenu(ActionEvent event) throws IOException{
+        String FoodMenufile = "FoodMenuScene.fxml";
+        changeScene(FoodMenufile, event);    }
 
-        }
+    @FXML
+    void OpenStoreInfo(ActionEvent event) throws IOException{
+        String StoreInfofile = "StoreInfoScene.fxml";
+        changeScene(StoreInfofile, event);
+    }
 
-        @FXML
-        void OpenMenu(MouseEvent event) {
+    @FXML
+    void returnToHome(ActionEvent event) throws IOException{
+        changeScene("MainScene.fxml", event);
 
-        }
+    }
 
-        @FXML
-        void OpenStoreInfo(MouseEvent event) {
+    @FXML
+    void viewAccount(ActionEvent event) throws IOException{
+        changeScene("AccountSignUpScene.fxml", event);
 
-        }
-
-        @FXML
-        void confirm(ActionEvent event) {
-
-        }
-
-        @FXML
-        void returnToHome(ActionEvent event) {
-
-        }
-
-        @FXML
-        void viewAccount(ActionEvent event) {
-
-        }
     }
 
 }

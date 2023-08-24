@@ -20,7 +20,6 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextFormatter;
 
 
 public class DeliveryController extends Order{
@@ -83,7 +82,7 @@ public void delivery(ActionEvent action) throws IOException{
             out.println("cart");
         } 
         catch (IOException e) {
-            System.out.println("function no work");
+            System.out.println("error");
         }
     }
 
