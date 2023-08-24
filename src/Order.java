@@ -63,6 +63,9 @@ public class Order extends User {
             orderFileName = "./TheNettyPots/src/resources/" + Integer.toString(orderNum) + ".txt";
             customerOrder = new File(orderFileName);
         }
+        String saveordernum = Integer.toString(orderNum);
+        System.out.println(saveordernum);
+        saveOrderNum(saveordernum);
         customerOrder.createNewFile();
         System.out.println(orderFileName);
          try(FileWriter orderWriter = new FileWriter(orderFileName, true); 
@@ -79,6 +82,22 @@ public class Order extends User {
             System.out.println("function no work");
         }
         //needs to pull shopping cart items when checkout is clicked
+    }
+
+    public void saveOrderNum(String orderNum) throws IOException{
+        String orderFileName = "./TheNettyPots/src/resources/" + "GuestOrder" + ".txt";
+        File guestOrder = new File(orderFileName); //creates customerOrder file object
+        guestOrder.createNewFile();
+
+         try(FileWriter orderWriter = new FileWriter(orderFileName, true); 
+            BufferedWriter itemInfo = new BufferedWriter(orderWriter);
+            PrintWriter out = new PrintWriter(itemInfo))
+            {
+            out.println(orderNum);
+        } 
+        catch (IOException e) {
+            System.out.println("function no work");
+        }
     }
     //need a function to pull items from cart when checkout is done
     public void addItemsToOrder(){

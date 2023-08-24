@@ -1,0 +1,16 @@
+Pepperoni Pizza: $15.99
+wings: $8.99
+Caesar Salad: $5.99
+Brownie: $7.99
+Pepperoni Pizza: $15.99
+wings: $8.99
+Caesar Salad: $5.99
+Cookie: $7.99
+Pepperoni Pizza: $15.99
+wings: $8.99
+Caesar Salad: $5.99
+Brownie: $7.99
+Pepperoni Pizza: $15.99
+wings: $8.99
+Caesar Salad: $5.99
+Cookie: $7.99
