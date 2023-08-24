@@ -80,7 +80,7 @@ public void delivery(ActionEvent action) throws IOException{
             out.println("cart");
         } 
         catch (IOException e) {
-            System.out.println("function no work");
+            System.out.println("error");
         }
     }
 

@@ -8,11 +8,15 @@
 import java.io.IOException;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.event.ActionEvent;
+
 public class AccountController 
 {
 	private Parent root;
@@ -20,13 +24,25 @@ public class AccountController
 	private Scene scene;
 
 	@FXML
-    void AccountLogin(ActionEvent event) {
+    private Button SignUpButton;
 
+    @FXML
+    private Button continueButton;
+
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    private TextField username;
+
+	@FXML
+    void AccountLogin(ActionEvent event) {
+		
     }
 
     @FXML
-    void AccountSignUp(ActionEvent event) {
-
+    void SignUpButton(ActionEvent event) throws IOException{
+		changeScene("AccountSignUpScene", event);
     }
 
     @FXML
@@ -58,8 +74,10 @@ public class AccountController
 
     @FXML
     void viewAccount(ActionEvent event) throws IOException{
-		//if logged in, open this scene, etc.
-        changeScene("AccountSignUpScene.fxml", event);
+		if(username != null){
+			changeScene("AccountScene", event);
+		}else
+        	changeScene("AccountSignUpScene.fxml", event);
     }
 
 	/** 
