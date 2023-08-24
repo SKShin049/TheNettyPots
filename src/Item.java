@@ -1,7 +1,7 @@
 /** 
 a) Item Class
 b) 8/8/23
-c) Ryan P
+c) @author Ryan P
 d) class which contains Item information
 e) explanation of functions located above each function
 f) used array as data structure

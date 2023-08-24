@@ -1,3 +1,8 @@
+/**
+ * @author Summer S
+ * @author Morgan B
+ * 
+ */
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
