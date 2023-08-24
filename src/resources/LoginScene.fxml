@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountController">
    <children>
       <SplitPane dividerPositions="0.14106425702811246" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
         <items>
@@ -50,17 +50,17 @@
                         <Font name="Impact" size="35.0" />
                      </font>
                   </Text>
-                  <Button fx:id="confirmButton" layoutX="266.0" layoutY="186.0" mnemonicParsing="false" onAction="#confirm" text="Continue">
+                  <Button fx:id="continueButton" layoutX="266.0" layoutY="186.0" mnemonicParsing="false" onAction="#Continue" text="Continue">
                      <font>
                         <Font name="Impact" size="13.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="orderName" layoutX="218.0" layoutY="98.0" promptText="Username">
+                  <TextField fx:id="username" layoutX="218.0" layoutY="98.0" onAction="#Continue" promptText="Username">
                      <font>
                         <Font name="Avenir Book" size="13.0" />
                      </font>
                   </TextField>
-                  <PasswordField layoutX="217.0" layoutY="141.0" promptText="Password">
+                  <PasswordField fx:id="password" layoutX="217.0" layoutY="141.0" onAction="#Continue" promptText="Password">
                      <font>
                         <Font name="Avenir Book" size="13.0" />
                      </font>
@@ -70,7 +70,7 @@
                         <Font name="Avenir Book" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="confirmButton1" layoutX="352.0" layoutY="247.0" mnemonicParsing="false" onAction="#confirm" text="Sign Up Here!">
+                  <Button fx:id="SignUpButton" layoutX="352.0" layoutY="247.0" mnemonicParsing="false" onAction="#signup" text="Sign Up Here!">
                      <font>
                         <Font name="Impact" size="13.0" />
                      </font>

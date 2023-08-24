@@ -129,7 +129,7 @@ public class AccountController extends User implements Initializable{
 
 	@FXML
     void AccountLogin(ActionEvent event) throws IOException{
-		changeScene("AccountLoginScene", event);
+		changeScene("AccountLoginScene.fxml", event);
     }
 
     @FXML
@@ -208,5 +208,11 @@ public class AccountController extends User implements Initializable{
     void CheckUserName(KeyEvent event) {
 
     }
+
+    @FXML
+    void Continue(ActionEvent event) throws IOException{
+        changeScene("FoodMenuScene.fxml", event);
+    }
+
 
 }
