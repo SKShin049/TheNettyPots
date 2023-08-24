@@ -35,13 +35,13 @@ public class Main extends Application {
         // ShoppingCart c = new ShoppingCart();
         // c.createOrder();
         launch(args);
-        File cart = new File("./TheNettyPots/src/resources/cart.txt");
+        File cart = new File("./src/resources/cart.txt");
         cart.delete();
         cart.createNewFile();
-        File loggeduserFile = new File("./TheNettyPots/src/resources/CurrentlyLoggedIn.txt");
+        File loggeduserFile = new File("./src/resources/CurrentlyLoggedIn.txt");
         loggeduserFile.delete();
         loggeduserFile.createNewFile();
-        File guestOrderFile = new File("./TheNettyPots/src/resources/GuestOrder.txt");
+        File guestOrderFile = new File("./src/resources/GuestOrder.txt");
         guestOrderFile.delete();
         guestOrderFile.createNewFile();
     }

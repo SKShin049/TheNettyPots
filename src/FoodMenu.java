@@ -31,7 +31,7 @@ public class FoodMenu{
 
 
     private void getMenuItems(){
-        File file = new File("./TheNettyPots/src/resources/FoodMenu.txt");
+        File file = new File("./src/resources/FoodMenu.txt");
 
 
         try {                                                               //This try catch will read our MenuFile(Database that contains our menu items) line by line, and allows our fillMenu function

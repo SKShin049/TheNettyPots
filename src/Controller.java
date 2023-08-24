@@ -173,19 +173,19 @@ public class Controller extends ShoppingCart implements Initializable {
     void checkout(ActionEvent event) throws IOException{
         User u = new User();
         if(u.checkifLoggedIn()){
-            String FileName = "./TheNettyPots/src/resources/" + getOrderNum() + ".txt";
+            String FileName = "./src/resources/" + getOrderNum() + ".txt";
             addtoOrderFile(FileName);
             openFile(FileName);
         }
         else{
-            String FileName = "./TheNettyPots/src/resources/" + "GuestOrder" + ".txt";
+            String FileName = "./src/resources/" + "GuestOrder" + ".txt";
             addtoOrderFile(FileName);
             openFile(FileName);
         }
     }
 
     public String getOrderNum() throws IOException{
-        BufferedReader br = new BufferedReader(new FileReader("./TheNettyPots/src/resources/GuestOrder.txt"));     
+        BufferedReader br = new BufferedReader(new FileReader("./src/resources/GuestOrder.txt"));     
         String orderNum = br.readLine();
         return orderNum;
     }

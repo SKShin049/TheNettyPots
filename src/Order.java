@@ -56,11 +56,11 @@ public class Order extends User {
      */
     public void createOrder(User user) throws IOException{
          orderNum = 1000;
-        String orderFileName = "./TheNettyPots/src/resources/" + Integer.toString(orderNum) + ".txt";
+        String orderFileName = "./src/resources/" + Integer.toString(orderNum) + ".txt";
         File customerOrder = new File(orderFileName); //creates customerOrder file object
         while(customerOrder.exists()){
             orderNum++;
-            orderFileName = "./TheNettyPots/src/resources/" + Integer.toString(orderNum) + ".txt";
+            orderFileName = "./src/resources/" + Integer.toString(orderNum) + ".txt";
             customerOrder = new File(orderFileName);
         }
         String saveordernum = Integer.toString(orderNum);
@@ -85,7 +85,7 @@ public class Order extends User {
     }
 
     public void saveOrderNum(String orderNum) throws IOException{
-        String orderFileName = "./TheNettyPots/src/resources/" + "GuestOrder" + ".txt";
+        String orderFileName = "./src/resources/" + "GuestOrder" + ".txt";
         File guestOrder = new File(orderFileName); //creates customerOrder file object
         guestOrder.createNewFile();
 

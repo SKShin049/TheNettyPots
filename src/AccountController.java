@@ -111,7 +111,7 @@ public class AccountController extends User implements Initializable{
 		
     }
 
-	String acountDBFileName = "./TheNettyPots/src/resources/AccountDB.txt";
+	String acountDBFileName = "./src/resources/AccountDB.txt";
 	private void writeToFile(User newUser){
        
 

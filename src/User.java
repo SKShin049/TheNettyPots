@@ -71,7 +71,7 @@ public class User
     public User(){
         //empty constructor
     }
-    String loggedInFileName = "./TheNettyPots/src/resources/CurrentlyLoggedIn.txt";
+    String loggedInFileName = "./src/resources/CurrentlyLoggedIn.txt";
     public void setLoggedIn(User user){
         try(FileWriter orderWriter = new FileWriter(loggedInFileName, true); 
         BufferedWriter itemInfo = new BufferedWriter(orderWriter);
@@ -86,7 +86,7 @@ public class User
     }
 
     public boolean checkifLoggedIn() throws IOException{
-        BufferedReader br = new BufferedReader(new FileReader("./TheNettyPots/src/resources/CurrentlyLoggedIn.txt"));     
+        BufferedReader br = new BufferedReader(new FileReader("./src/resources/CurrentlyLoggedIn.txt"));     
             if (br.readLine() == null) 
                 return false;
             return true;

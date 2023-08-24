@@ -62,7 +62,7 @@ public void delivery(ActionEvent action) throws IOException{
  }
 
  public void createGuestOrder() throws IOException{
-        String orderFileName = "./TheNettyPots/src/resources/" + "GuestOrder" + ".txt";
+        String orderFileName = "./src/resources/" + "GuestOrder" + ".txt";
         File guestOrder = new File(orderFileName); //creates customerOrder file object
         guestOrder.createNewFile();
 
