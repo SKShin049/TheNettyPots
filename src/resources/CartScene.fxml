@@ -139,7 +139,7 @@
                                                       </Label>
                                                    </children>
                                                 </HBox>
-                                                <Button alignment="CENTER" mnemonicParsing="false" stylesheets="@template.css" text="Checkout" textFill="WHITE">
+                                                <Button fx:id="checkoutButton" alignment="CENTER" mnemonicParsing="false" onAction="#checkout" stylesheets="@template.css" text="Checkout" textFill="WHITE">
                                                    <VBox.margin>
                                                       <Insets left="75.0" />
                                                    </VBox.margin>

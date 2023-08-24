@@ -11,6 +11,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class FoodMenu{
 
@@ -28,13 +30,8 @@ public class FoodMenu{
 
 
 
-    private String filePath = "/Users/ryan/TheNettyPots/TheNettyPots/src/resources/FoodMenu.txt";
-
-    /*
-     * getMenuItems function reads our FoodMenu.txt(database) line by line, and allows fillMenu() to insert into the correct menu arrays
-     */
     private void getMenuItems(){
-        File file = new File(filePath);
+        File file = new File("./TheNettyPots/src/resources/FoodMenu.txt");
 
 
         try {                                                               //This try catch will read our MenuFile(Database that contains our menu items) line by line, and allows our fillMenu function

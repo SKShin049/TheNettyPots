@@ -217,7 +217,7 @@ public class Controller extends ShoppingCart implements Initializable {
      */
     @FXML
     void viewAccount(ActionEvent event) throws IOException{
-        changeScene("AccountSignUpScene.fxml", event);
+        changeScene("AccountScene.fxml", event);
     }
 
     /** 
@@ -304,6 +304,20 @@ public class Controller extends ShoppingCart implements Initializable {
     void OpenDrinksMenu(ActionEvent event) throws IOException{
         changeScene("DrinksMenuScene.fxml", event);
         //initialize(DrinkMenu);
+    }
+
+    
+     @FXML
+    private Label subtotal;
+    void SetSubtotalLabel(){
+        initializeCart();
+        double temp = 0;
+        temp = CalculateSubTotal();
+        if(temp >.01){
+            String s = Double.toString(temp);
+            subtotal.setText(s);
+        }
+        
     }
 
     

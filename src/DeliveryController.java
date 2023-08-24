@@ -3,16 +3,24 @@
  * If a user does not have an account, they will need to input their address.
  * @author Morgan Barrett
  */
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextFormatter;
 
 
 public class DeliveryController extends Order{
@@ -35,12 +43,14 @@ public void changeScene(String fxmlName, ActionEvent event) throws IOException{
     stage.show();
 }
 
+
 @FXML
 public void delivery(ActionEvent action) throws IOException{
     String deliveryScene = "StartDeliveryScene.fxml";
     String menuScene = "FoodMenuScene.fxml";
     //if userID exists, go straight to menu, else, go to delivery address input
-    if(username !=  null){
+    //
+    if(username !=  null && DeliveryOrder.checkRadius(zipCode) == true){
         changeScene(menuScene, action);
         //create order text file here if they are an existing user
     }
@@ -49,8 +59,33 @@ public void delivery(ActionEvent action) throws IOException{
     }
  }
 
-   // @FXML
-   // private TextField city;
+ public void createGuestOrder() throws IOException{
+        String orderFileName = "/resources/" + "GuestOrder" + ".txt";
+        File guestOrder = new File(orderFileName); //creates customerOrder file object
+        guestOrder.createNewFile();
+
+         try(FileWriter orderWriter = new FileWriter(orderFileName, true); 
+            BufferedWriter itemInfo = new BufferedWriter(orderWriter);
+            PrintWriter out = new PrintWriter(itemInfo))
+            {
+            out.println("Guest");
+            out.println("orderTime");
+            out.println(guestFirstName.getText() +" "+ guestLastName.getText());
+            out.println(guestStreet1.getText());
+            out.println(guestStreet2.getText());
+            out.println(guestCity.getText());
+            out.println(guestState.getText());
+            out.println(guestZip.getText());
+            out.println(instructions.getText());
+            out.println("cart");
+        } 
+        catch (IOException e) {
+            System.out.println("function no work");
+        }
+    }
+
+    @FXML
+    private TextField guestCity;
 
     @FXML
     private TextField guestFirstName;
@@ -71,6 +106,15 @@ public void delivery(ActionEvent action) throws IOException{
     private TextField guestZip;
 
     @FXML
+    private TextArea instructions;
+
+    @FXML
+    private Button nextButton;
+
+    @FXML
+    private Label label;
+
+    @FXML
     void OpenCart(ActionEvent event) throws IOException{
         changeScene("CartScene.fxml", event);
     }
@@ -87,10 +131,14 @@ public void delivery(ActionEvent action) throws IOException{
         changeScene(StoreInfofile, event);
     }
 
-    @FXML
-    void c(ActionEvent event) {
-        //next button
-        //have this function create the order text file
+    @FXML //action event for "next" button
+    void Next(ActionEvent event) throws IOException {
+        DeliveryOrder.checkRadius(Integer.parseInt(guestZip.getText())); 
+        if(DeliveryOrder.checkRadius(zipCode) == true){
+            createGuestOrder();
+        } else{
+            label.setText("Zip code is out of range. Please place carry out order instead.");
+        }
     }
 
     @FXML
@@ -100,9 +148,7 @@ public void delivery(ActionEvent action) throws IOException{
 
     @FXML
     void saveUserData(ActionEvent event) {
-        //firstName = guestFirstName.getAccessibleText();
-        //lastName = guestLastName.getAccessibleText();
-        //finish
+    
     }
 
     @FXML

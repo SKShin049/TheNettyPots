@@ -5,28 +5,106 @@
  * @author Renzo Pereyra
  */
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
-public class AccountController 
-{
+import javafx.scene.input.KeyEvent;
+
+public class AccountController extends User implements Initializable{
 	private Parent root;
 	private Stage stage;
 	private Scene scene;
 
 	@FXML
-    void AccountLogin(ActionEvent event) {
+    private TextField UCity;
 
+    @FXML
+    private TextField UFirstName;
+
+    @FXML
+    private TextField ULastName;
+
+    @FXML
+    private PasswordField UPassword;
+
+    @FXML
+    private TextField UState;
+
+    @FXML
+    private TextField UStreetAddress1;
+
+    @FXML
+    private TextField UStreetAddress2;
+
+    @FXML
+    private TextField UZip;
+
+    @FXML
+    private TextField uUsername;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+	}
+
+    @FXML
+    void CreateAndNext(ActionEvent event) throws IOException {
+		String uName = uUsername.getText();
+		String uPass = UPassword.getText();
+		String ufirst = UFirstName.getText();
+		String ulast = uUsername.getText();
+		String uSA1 = UStreetAddress1.getText();
+		String uSA2 = UStreetAddress2.getText();
+		String ustate = UState.getText();
+		int uZipCode = Integer.parseInt(UZip.getText());
+		
+		User newUser = new User(uName, uPass, ufirst, ulast, uSA1, uSA2, ustate, uZipCode);
+		writeToFile(newUser);
+		setLoggedIn(newUser);
+		changeScene("MenuFoodScene.fxml", event);
+    }
+
+	String acountDBFileName = "./TheNettyPots/src/resources/AccountDB.txt";
+	private void writeToFile(User newUser){
+       
+
+        try(FileWriter orderWriter = new FileWriter(acountDBFileName, true); 
+            BufferedWriter itemInfo = new BufferedWriter(orderWriter);
+            PrintWriter out = new PrintWriter(itemInfo))
+            {
+            out.println(newUser.username + "_" + newUser.password + "_" + newUser.firstName + "_" + newUser.lastName
+			+ "_" + newUser.addressLineOne + "_" + newUser.addressLineTwo + "_" + newUser.state + "_" + newUser.zipCode);
+        } 
+        catch (IOException e) {
+            System.out.println("function no work");
+        }
+    }
+
+	@FXML
+    void AccountLogin(ActionEvent event) throws IOException{
+		changeScene("AccountLoginScene", event);
     }
 
     @FXML
-    void AccountSignUp(ActionEvent event) {
-
+    void AccountSignUp(ActionEvent event) throws IOException {
+		changeScene("AccountSignUpScene.fxml", event);
     }
 
     @FXML
@@ -46,10 +124,6 @@ public class AccountController
         changeScene(StoreInfofile, event);
     }
 
-    @FXML
-    void c(ActionEvent event) {
-
-    }
 
     @FXML
     void returnToHome(ActionEvent event) throws IOException{
@@ -97,4 +171,10 @@ public class AccountController
 		stage.setScene(scene);
 		stage.show();
 	}
+
+	@FXML
+    void CheckUserName(KeyEvent event, String Username) {
+
+    }
+
 }
