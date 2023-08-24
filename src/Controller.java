@@ -198,7 +198,7 @@ public class Controller extends ShoppingCart implements Initializable {
      */
     @FXML
     void viewAccount(ActionEvent event) throws IOException{
-        changeScene("AccountSignUpScene.fxml", event);
+        changeScene("AccountScene.fxml", event);
     }
 
     /** 
