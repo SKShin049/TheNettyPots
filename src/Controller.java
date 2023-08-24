@@ -164,17 +164,30 @@ public class Controller extends ShoppingCart implements Initializable {
         
     }
 
+    public void openFile(String filename){
+        File encyptFile=new File(filename);
+        System.out.println(encyptFile.exists());
+    }
+
     @FXML
     void checkout(ActionEvent event) throws IOException{
         User u = new User();
         if(u.checkifLoggedIn()){
-            String FileName = "./TheNettyPots/src/resources/" + "CustomerOrder" + ".txt";
+            String FileName = "./TheNettyPots/src/resources/" + getOrderNum() + ".txt";
             addtoOrderFile(FileName);
+            openFile(FileName);
         }
         else{
             String FileName = "./TheNettyPots/src/resources/" + "GuestOrder" + ".txt";
             addtoOrderFile(FileName);
+            openFile(FileName);
         }
+    }
+
+    public String getOrderNum() throws IOException{
+        BufferedReader br = new BufferedReader(new FileReader("./TheNettyPots/src/resources/GuestOrder.txt"));     
+        String orderNum = br.readLine();
+        return orderNum;
     }
 
     public void addtoOrderFile(String filename) throws IOException{
@@ -187,12 +200,14 @@ public class Controller extends ShoppingCart implements Initializable {
             PrintWriter out = new PrintWriter(itemInfo))
             {
             for(int i = 0;i<cart.size();i++)
-            out.println(cart.get(i));
+            out.println(cart.get(i).foodName +": $" + cart.get(i).foodPrice);
         } 
         catch (IOException e) {
             System.out.println("function no work");
         }
     }
+
+
     
     /** 
      * OpenMenu function opens our FoodMenuScene.fxml
