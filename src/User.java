@@ -70,7 +70,7 @@ public class User
         //empty constructor
     }
 
-    public static void userMain() throws FileNotFoundException, IOException, ClassNotFoundException, NoSuchElementException
+    public void userMain() throws FileNotFoundException, IOException, ClassNotFoundException, NoSuchElementException
     {
         FileWriter fw = new FileWriter("/Users/MorganBarrett/Desktop/School/CSUN/Summer2023/COMP380/TheNettyPots/src/resources/AccountDB.txt", true);
         BufferedWriter bw = new BufferedWriter(fw);
