@@ -4,7 +4,13 @@
 
 This class is designed to handle our GUI scene switches and connect any buttons to their corresponding function
  */
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +29,7 @@ import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.input.MouseEvent;
+//import javafx.scene.input.MouseEvent;
 
 
 public class Controller extends ShoppingCart implements Initializable {
@@ -49,7 +55,7 @@ public class Controller extends ShoppingCart implements Initializable {
 
      @FXML
     private VBox cardLayout;
-    private ArrayList<Item> prod = new ArrayList<>(Arrays.asList(PizzaMenu));
+    //private ArrayList<Item> prod = new ArrayList<>(Arrays.asList(PizzaMenu));
     
 
         @Override
@@ -156,6 +162,36 @@ public class Controller extends ShoppingCart implements Initializable {
             subtotal.setText(s);
         }
         
+    }
+
+    @FXML
+    void checkout(ActionEvent event) throws IOException{
+        User u = new User();
+        if(u.checkifLoggedIn()){
+            String FileName = "./TheNettyPots/src/resources/" + "CustomerOrder" + ".txt";
+            addtoOrderFile(FileName);
+        }
+        else{
+            String FileName = "./TheNettyPots/src/resources/" + "GuestOrder" + ".txt";
+            addtoOrderFile(FileName);
+        }
+    }
+
+    public void addtoOrderFile(String filename) throws IOException{
+        
+        File guestOrder = new File(filename); //creates customerOrder file object
+        guestOrder.createNewFile();
+
+         try(FileWriter orderWriter = new FileWriter(filename, true); 
+            BufferedWriter itemInfo = new BufferedWriter(orderWriter);
+            PrintWriter out = new PrintWriter(itemInfo))
+            {
+            for(int i = 0;i<cart.size();i++)
+            out.println(cart.get(i));
+        } 
+        catch (IOException e) {
+            System.out.println("function no work");
+        }
     }
     
     /** 
@@ -304,20 +340,6 @@ public class Controller extends ShoppingCart implements Initializable {
     void OpenDrinksMenu(ActionEvent event) throws IOException{
         changeScene("DrinksMenuScene.fxml", event);
         //initialize(DrinkMenu);
-    }
-
-    
-     @FXML
-    private Label subtotal;
-    void SetSubtotalLabel(){
-        initializeCart();
-        double temp = 0;
-        temp = CalculateSubTotal();
-        if(temp >.01){
-            String s = Double.toString(temp);
-            subtotal.setText(s);
-        }
-        
     }
 
     

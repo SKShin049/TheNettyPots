@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -31,6 +32,7 @@ public class AccountController extends User implements Initializable{
 	private Parent root;
 	private Stage stage;
 	private Scene scene;
+    private boolean usernameAvaliable = true;
 
 	@FXML
     private TextField UCity;
@@ -55,9 +57,13 @@ public class AccountController extends User implements Initializable{
 
     @FXML
     private TextField UZip;
-
+    @FXML
+    private TextField Uemail;
     @FXML
     private TextField uUsername;
+
+     @FXML
+    private Label errorLabel;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -66,19 +72,30 @@ public class AccountController extends User implements Initializable{
 
     @FXML
     void CreateAndNext(ActionEvent event) throws IOException {
-		String uName = uUsername.getText();
+        Order o = new Order();
+        if(usernameAvaliable == true){
+        String uName = uUsername.getText();
 		String uPass = UPassword.getText();
 		String ufirst = UFirstName.getText();
-		String ulast = uUsername.getText();
+		String ulast = ULastName.getText();
 		String uSA1 = UStreetAddress1.getText();
 		String uSA2 = UStreetAddress2.getText();
 		String ustate = UState.getText();
 		int uZipCode = Integer.parseInt(UZip.getText());
+        String uemail = Uemail.getText();
+        String ucity = UCity.getText();
 		
-		User newUser = new User(uName, uPass, ufirst, ulast, uSA1, uSA2, ustate, uZipCode);
+		User newUser = new User(uName, uPass, ufirst, ulast, uSA1, uSA2, ustate, uZipCode, uemail,ucity);
 		writeToFile(newUser);
 		setLoggedIn(newUser);
-		changeScene("MenuFoodScene.fxml", event);
+        o.createOrder(newUser);
+        
+		changeScene("FoodMenuScene.fxml", event);
+        }
+        else {
+            errorLabel.setText("Username Taken!");
+        }
+		
     }
 
 	String acountDBFileName = "./TheNettyPots/src/resources/AccountDB.txt";
@@ -90,7 +107,7 @@ public class AccountController extends User implements Initializable{
             PrintWriter out = new PrintWriter(itemInfo))
             {
             out.println(newUser.username + "_" + newUser.password + "_" + newUser.firstName + "_" + newUser.lastName
-			+ "_" + newUser.addressLineOne + "_" + newUser.addressLineTwo + "_" + newUser.state + "_" + newUser.zipCode);
+			+ "_" + newUser.addressLineOne + "_" + newUser.addressLineTwo + " _" + newUser.state + "_" + newUser.zipCode);
         } 
         catch (IOException e) {
             System.out.println("function no work");
@@ -173,7 +190,7 @@ public class AccountController extends User implements Initializable{
 	}
 
 	@FXML
-    void CheckUserName(KeyEvent event, String Username) {
+    void CheckUserName(KeyEvent event) {
 
     }
 

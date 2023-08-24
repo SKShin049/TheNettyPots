@@ -24,6 +24,7 @@ public class User
     public String city;
     public String state;
     public int zipCode;
+    public String email;
 
     public String getusername(){
         return username;
@@ -53,7 +54,7 @@ public class User
         return zipCode;
     }
 
-    public User(String username, String password, String firstName, String lastName, String addressLineOne, String addressLineTwo, String state, int zipCode)
+    public User(String username, String password, String firstName, String lastName, String addressLineOne, String addressLineTwo, String state, int zipCode, String email, String city)
     {
         this.username = username;
         this.password = password;
@@ -64,6 +65,7 @@ public class User
         this.city = city;
         this.state = state;
         this.zipCode = zipCode;
+        this.email = email;
     }
 
     public User(){
@@ -76,16 +78,23 @@ public class User
         PrintWriter out = new PrintWriter(itemInfo))
         {
         out.println(user.username + "_" + user.password + "_" + user.firstName + "_" + user.lastName
-        + "_" + user.addressLineOne + "_" + user.addressLineTwo + "_" + user.state + "_" + user.zipCode);
+        + "_" + user.addressLineOne + "_" + user.addressLineTwo + "_" + user.state + "_" + user.zipCode + "_" + user.city + "_" + user.email);
     } 
     catch (IOException e) {
         System.out.println("function no work");
     }
     }
 
+    public boolean checkifLoggedIn() throws IOException{
+        BufferedReader br = new BufferedReader(new FileReader("./TheNettyPots/src/resources/CurrentlyLoggedIn.txt"));     
+            if (br.readLine() == null) 
+                return false;
+            return true;
+    }
+
     public User getLoggedIn (){
 
-        User user = new User(username, password, firstName, lastName, addressLineOne, addressLineTwo, state, zipCode);
+        User user = new User(username, password, firstName, lastName, addressLineOne, addressLineTwo, state, zipCode, email, city);
         File file = new File(loggedInFileName);
         try {                                                               //This try catch will read our MenuFile(Database that contains our menu items) line by line, and allows our fillMenu function
             FileReader fileReader = new FileReader(file);                   //to insert each menu item into the proper menu array.
@@ -94,7 +103,7 @@ public class User
             String line = bufferedReader.readLine();
             while (line != null) {
                 //System.out.println(line);
-                //fillMenu(line);
+                fillUser(line, user);
                 line = bufferedReader.readLine();
             }
     
@@ -104,6 +113,23 @@ public class User
             e.printStackTrace();
         }
         return user;
+    }
+
+    public void fillUser(String line, User user){
+        String[] parts = line.split("_");
+        String uName = parts[0];
+		String uPass =parts[1];
+		String ufirst = parts[2];
+		String ulast = parts[3];
+		String uSA1 = parts[4];
+		String uSA2 =parts[5];
+		String ustate =parts[6];
+		int uZipCode = Integer.parseInt(parts[7]);
+        String uemail = parts[8];
+        String ucity = parts[9];
+        User temp = new User(uName, uPass, ufirst, ulast, uSA1, uSA2, ustate, uZipCode, uemail,ucity);
+        user = temp;
+
     }
 
 }

@@ -106,7 +106,7 @@ public class ShoppingCart extends FoodMenu{
         String lineToRemove = line;
         String currentLine;
          
-        while((currentLine = reader.readLine()) != null && removed == false) {
+        while((currentLine = reader.readLine()) != null) {
     // trim newline when comparing with lineToRemove
             String trimmedLine = currentLine.trim();
             if(trimmedLine.equals(lineToRemove) && removed == false){
